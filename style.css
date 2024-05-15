@@ -490,8 +490,8 @@ body {
 }
 
 .hero3 .boxImg {
-    width: 600px;
-    height: 400px;
+    width: 80%;
+    height: auto;
     filter: brightness(90%);
     transition: transform 0.3s ease, filter 0.3s ease;
 }
@@ -644,4 +644,189 @@ body {
     border-radius: 6px;
     font-size: 13px;
     box-shadow: 10px 10px 40px -14px #000;
+}
+
+@media screen and (max-width: 600px) {
+    .navbar-brand {
+        font-size: 30px;
+    }
+
+    .nav-item {
+        padding-right: 20px;
+    }
+
+    .nav-link {
+        font-size: 16px;
+    }
+
+    .hero {
+        padding: 1rem;
+        height: auto;
+    }
+
+    .item1 h5,
+    .item1 .txt1,
+    .item1 .txt2 {
+        font-size: 24px;
+    }
+
+    .item1 h1 {
+        font-size: 48px;
+    }
+
+    .item1 p {
+        font-size: 16px;
+    }
+
+    .ellipse {
+        width: 200px;
+        height: 200px;
+        top: 90%;
+        left: 50%;
+        transform: translate(-50%, -80%);
+    }
+
+    .image1 {
+        height: 300px;
+    }
+
+    .image2 {
+        height: 400px;
+    }
+
+    .item3 .socials {
+        font-size: 24px;
+        padding-right: 10px;
+    }
+
+    .item3 .button1 {
+        font-size: 18px;
+        height: 50px;
+        padding: 0 20px;
+    }
+
+    .hero2,
+    .hero3,
+    .hero4 {
+        height: auto;
+        padding: 20px 0;
+    }
+
+    .hero2 .heading,
+    .hero3 .heading,
+    .hero4 .heading {
+        margin: 50px 0;
+        font-size: 40px;
+    }
+
+    .hero2 .about,
+    .hero2 .about2,
+    .hero3 .about,
+    .hero3 .about2,
+    .hero4 .about,
+    .hero4 .about2 {
+        font-size: 30px;
+    }
+
+    .hero2 .square,
+    .hero3 .square {
+        height: auto;
+        margin: 20px;
+    }
+
+    .hero2 .boxImg,
+    .hero3 .boxImg {
+        font-size: 40px;
+        margin-bottom: 20px;
+    }
+
+    .hero2 .boxTxt,
+    .hero3 .boxTxt {
+        font-size: 24px;
+    }
+
+    .hero3 img {
+        width: 80%;
+        height: auto;
+    }
+
+    .hero4 .leftBox,
+    .hero4 .form {
+        padding: 10px;
+    }
+
+    .form h2 {
+        font-size: 24px;
+        width: 140px;
+    }
+
+    .form input {
+        font-size: 16px;
+    }
+
+    .form button {
+        padding: 10px 20px;
+    }
+
+    .form div {
+        width: 260px;
+        padding: 10px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .container {
+        padding: 0;
+    }
+
+    .hero2 .grid-container,
+    .hero3 .grid-container {
+        grid-template-columns: 1fr;
+        padding: 0;
+    }
+
+    .hero2 .square,
+    .hero3 .square {
+        width: 100%;
+        max-width: none;
+    }
+
+    .hero4 .leftBox,
+    .hero4 .form {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 600px) {
+
+    .hero2 .square,
+    .hero3 .square {
+        width: 300px;
+        margin: 0 auto;
+    }
+
+    .item3 .button1 {
+        width: 80%;
+        margin: 20px auto;
+        text-align: center;
+    }
+
+    .hero4 .form input {
+        font-size: 4vw;
+    }
+
+    .form button {
+        width: 80%;
+        margin: 20px auto;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .image2 {
+        display: none;
+    }
+
+    .hero2 .boxImg {
+        font-size: 50px;
+    }
 }
