@@ -490,7 +490,7 @@ body {
 }
 
 .hero3 .boxImg {
-    width: 80%;
+    width: 90%;
     height: auto;
     filter: brightness(90%);
     transition: transform 0.3s ease, filter 0.3s ease;
