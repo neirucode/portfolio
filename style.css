@@ -710,6 +710,12 @@ body {
 }
 
 @media screen and (max-width: 600px) {
+
+    #toggle-dark-mode {
+        top: 15px;
+        right: 80px;
+    }
+
     .navbar-brand {
         font-size: 30px;
     }
@@ -841,11 +847,6 @@ body {
 @media screen and (max-width: 600px) {
     .container {
         padding: 0;
-    }
-
-    #toggle-dark-mode {
-        top: 20px;
-        right: 100px;
     }
 
     .hero2 .grid-container,
