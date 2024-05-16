@@ -118,7 +118,7 @@ body {
 /* hero styling */
 .hero {
     height: 80%;
-    width: auto;
+    width: 100%;
     color: white;
     padding: 1.5rem;
     gap: 10px;
@@ -141,7 +141,7 @@ body {
 /* hero styling */
 .hero {
     height: 80%;
-    width: auto;
+    width: 100dvh;
     color: white;
     padding: 1.5rem;
     gap: 10px;
