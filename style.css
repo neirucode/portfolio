@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
+
 * {
     margin: 0;
     padding: 0;
@@ -5,7 +7,68 @@
 }
 
 body {
-    background-color: #000000;
+    background-color: black;
+}
+
+/* Light mode/dark mode toggle button */
+#toggle-dark-mode {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    width: 60px;
+    height: 30px;
+    border-radius: 30px;
+    background-color: #333;
+    position: absolute;
+    top: 30px;
+    right: 0;
+    transition: all 0.5s ease-in;
+    cursor: pointer;
+    z-index: 1;
+}
+
+/* Dot switch inside the toggle button with custom image */
+#toggle-dark-mode::before {
+    content: "";
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background-image: url('images/sun.png');
+    /* Change this path to your image */
+    background-size: cover;
+    background-position: center;
+    position: absolute;
+    top: 50%;
+    left: 3px;
+    transform: translateY(-50%);
+    transition: all 0.5s ease-in;
+}
+
+/* Changing toggle button background when checked */
+#toggle-dark-mode:checked {
+    background: #1b1b1b;
+}
+
+/* Moving the dot switch to the right side and changing its background image when checked */
+#toggle-dark-mode:checked::before {
+    background-image: url('images/moon.png');
+    filter: invert(95%) hue-rotate(180deg);
+    left: 32px;
+}
+
+/* Changing container background and text color when dark mode is toggled */
+#toggle-dark-mode:checked~.container {
+    background-color: #f1f1f1;
+    color: #EEE;
+}
+
+.light-mode {
+    filter: invert(95%) hue-rotate(180deg);
+    background-color: #fff;
+}
+
+.light-mode img {
+    filter: invert(95%) hue-rotate(180deg);
 }
 
 .container {
@@ -19,7 +82,7 @@ body {
 }
 
 .navbar {
-    background-color: rgba(0, 0, 0, 0.616);
+    background-color: rgba(29, 29, 29, 0.219);
 }
 
 /* navbar styling */
@@ -297,7 +360,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 100px 0 100px 0;
+    margin: 100px 0 100px 0;
 }
 
 .hero2 .grid-container {
@@ -567,7 +630,7 @@ body {
 }
 
 .hero4 .form {
-    width: 100%;
+    width: 90%;
     height: auto;
     margin: 0;
     color: white;
@@ -730,6 +793,7 @@ body {
 
     .hero2 .square,
     .hero3 .square {
+        width: 80%;
         height: auto;
         margin: 20px;
     }
@@ -816,7 +880,7 @@ body {
     }
 
     .form button {
-        width: 80%;
+        width: 70%;
         margin: 20px auto;
     }
 }
