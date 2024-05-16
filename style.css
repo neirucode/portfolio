@@ -81,9 +81,7 @@ body {
     margin: 0px;
 }
 
-.navbar {
-    background-color: rgba(29, 29, 29, 0.219);
-}
+
 
 /* navbar styling */
 .navbar-brand {
@@ -102,7 +100,7 @@ body {
 }
 
 .nav-item {
-    padding-right: 70px;
+    padding-right: 30px;
 }
 
 .nav-link {
