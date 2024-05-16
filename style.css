@@ -843,6 +843,11 @@ body {
         padding: 0;
     }
 
+    #toggle-dark-mode {
+        top: 25px;
+        right: 100px;
+    }
+
     .hero2 .grid-container,
     .hero3 .grid-container {
         grid-template-columns: 1fr;

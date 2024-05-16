@@ -1,3 +1,4 @@
+// email api
 function sendEmail() {
     Email.send({
         Host: "smtp.gmail.com",
@@ -14,7 +15,6 @@ function sendEmail() {
     );
 }
 // frontend dev typewriter effect
-
 document.addEventListener('DOMContentLoaded', function () {
     const txt2 = document.getElementById('typewriter');
     const text = "Frontend Developer";
@@ -31,9 +31,7 @@ document.addEventListener('DOMContentLoaded', function () {
     type();
 });
 
-
 // download cv code
-
 document.addEventListener("DOMContentLoaded", function () {
     // Select the download button
     const downloadButton = document.getElementById('download');
@@ -54,9 +52,7 @@ document.addEventListener("DOMContentLoaded", function () {
         document.body.removeChild(link);
     });
 });
-
-// dark mode
-
+// dark/light mode
 document.addEventListener('DOMContentLoaded', function () {
     const toggleButton = document.getElementById('toggle-dark-mode');
 
