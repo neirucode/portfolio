@@ -712,8 +712,8 @@ body {
 @media screen and (max-width: 600px) {
 
     #toggle-dark-mode {
-        top: 0px;
-        right: 60px;
+        top: 20px;
+        right: 80px;
     }
 
     .navbar-brand {
