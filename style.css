@@ -710,7 +710,9 @@ body {
     box-shadow: 10px 10px 40px -14px #000;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 600px),
+screen and (max-width: 800px),
+screen and (max-width: 1200px) {
 
     #toggle-dark-mode {
         top: 20px;
