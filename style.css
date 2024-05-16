@@ -711,7 +711,8 @@ body {
 }
 
 @media screen and (max-width: 600px),
-screen and (max-width: 800px) {
+screen and (max-width: 800px),
+screen and (max-width: 1000px) {
 
     #toggle-dark-mode {
         top: 20px;
