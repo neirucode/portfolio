@@ -27,10 +27,8 @@ document.addEventListener('DOMContentLoaded', function () {
             setTimeout(type, 150); // Adjust the typing speed (in milliseconds) if needed
         }
     }
-
     type();
 });
-
 // download cv code
 document.addEventListener("DOMContentLoaded", function () {
     // Select the download button
