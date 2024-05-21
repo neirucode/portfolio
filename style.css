@@ -141,7 +141,7 @@ body {
 /* hero styling */
 .hero {
     height: 80%;
-    width: 100dvh;
+    width: 100%;
     color: white;
     padding: 1.5rem;
     gap: 10px;
@@ -476,7 +476,7 @@ body {
     background-color: #ffffff;
     height: 10px;
     border-radius: 5px;
-    margin-top: 10%;
+    margin-top: 9%;
 }
 
 .hero3 .grid-container {
