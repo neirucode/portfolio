@@ -141,8 +141,9 @@ body {
 /* hero styling */
 .hero {
     height: 80%;
-    width: 100%;
-    color: white;
+    <<<<<<< HEAD width: 100%;
+    =======width: 100%;
+    >>>>>>>514fabb184cc643d774c314e9af7067f5d4649f1 color: white;
     padding: 1.5rem;
     gap: 10px;
     background: rgba(15, 15, 15, 0.9);
