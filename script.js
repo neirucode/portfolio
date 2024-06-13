@@ -36,17 +36,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Add click event listener to the button
     downloadButton.addEventListener('click', function () {
-        // Create an anchor element
+
         const link = document.createElement('a');
-        // Set the href attribute to the path of the CV file
-        link.href = 'files/FERNANDO, JERRY NEIL -CV (1).pdf'; // Replace with the actual path to your CV file
-        // Set the download attribute with a filename
-        link.download = 'Neil_Fernando_CV.pdf'; // Replace with your desired file name
-        // Append the link to the body (necessary for Firefox)
+        link.href = 'files/FERNANDO, JERRY NEIL -CV (1).pdf';
+        link.download = 'Neil_Fernando_CV.pdf';
         document.body.appendChild(link);
-        // Programmatically click the link to trigger the download
         link.click();
-        // Remove the link from the document
         document.body.removeChild(link);
     });
 });
@@ -57,4 +52,21 @@ document.addEventListener('DOMContentLoaded', function () {
     toggleButton.addEventListener('click', function () {
         document.body.classList.toggle('light-mode');
     });
+});
+// reveal section
+document.addEventListener("DOMContentLoaded", function () {
+    const revealSection = document.querySelector(".reveal-section");
+
+    function revealOnScroll() {
+        const sectionTop = revealSection.getBoundingClientRect().top;
+        const sectionVisible = 150;
+
+        if (sectionTop < window.innerHeight - sectionVisible) {
+            revealSection.classList.add("reveal");
+        } else {
+            revealSection.classList.remove("reveal");
+        }
+    }
+
+    window.addEventListener("scroll", revealOnScroll);
 });
