@@ -1,18 +1,27 @@
 // email api
+(function () {
+    emailjs.init("v48FaCKwRG2ATZx72");
+})();
+
 function sendEmail() {
-    Email.send({
-        Host: "smtp.gmail.com",
-        Username: "jerryfernando01@gmail.com",
-        Password: "jhztntbohqqabwch",
-        To: 'jerryneil1201@gmail.com',
-        From: document.getElementById("email").value,
-        Subject: "New Contact Form Inquiry",
-        Body: "Name: " + document.getElementById("name").value
-            + "<br> Email: " + document.getElementById("email").value
-            + "<br> Message: " + document.getElementById("message").value
-    }).then(
-        message => alert("Message Sent Successfuly")
-    );
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const message = document.getElementById('message').value;
+
+    const templateParams = {
+        name: name,
+        email: email,
+        message: message
+    };
+
+    emailjs.send('service_294hyhe', 'template_i2vztjv', templateParams)
+        .then(function (response) {
+            console.log('SUCCESS!', response.status, response.text);
+            alert('Message sent successfully!');
+        }, function (error) {
+            console.log('FAILED...', error);
+            alert('Failed to send message. Please try again.');
+        });
 }
 // frontend dev typewriter effect
 document.addEventListener('DOMContentLoaded', function () {
