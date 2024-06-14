@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', function () {
         if (index < text.length) {
             txt2.innerHTML += text.charAt(index);
             index++;
-            setTimeout(type, 150); // Adjust the typing speed (in milliseconds) if needed
+            setTimeout(type, 150);
         }
     }
     type();
