@@ -14,7 +14,7 @@ function sendEmail() {
         message: message
     };
 
-    emailjs.send('service_294hyhe', 'template_i2vztjv', templateParams)
+    emailjs.send('service_294hyhe', 'template_ayae0jh', templateParams)
         .then(function (response) {
             console.log('SUCCESS!', response.status, response.text);
             alert('Message sent successfully!');
