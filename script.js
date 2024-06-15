@@ -1,3 +1,12 @@
+// Smooth Scroll
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth'
+        });
+    });
+});
 // email api
 (function () {
     emailjs.init("v48FaCKwRG2ATZx72");
@@ -23,21 +32,69 @@ function sendEmail() {
             alert('Failed to send message. Please try again.');
         });
 }
-// frontend dev typewriter effect
-document.addEventListener('DOMContentLoaded', function () {
-    const txt2 = document.getElementById('typewriter');
-    const text = "Frontend Developer";
-    let index = 0;
+// Typewriter Effect
+const typewriter = document.getElementById('typewriter');
+const phrases = ["Developer", "Designer", "Freelancer"];
+let currentPhrase = 0;
+let currentLetter = 0;
+let isDeleting = false;
 
-    function type() {
-        if (index < text.length) {
-            txt2.innerHTML += text.charAt(index);
-            index++;
-            setTimeout(type, 150);
+function type() {
+    const currentText = phrases[currentPhrase];
+
+    if (isDeleting) {
+        typewriter.textContent = currentText.slice(0, currentLetter--);
+        if (currentLetter === 0) {
+            isDeleting = false;
+            currentPhrase = (currentPhrase + 1) % phrases.length;
+            setTimeout(type, 200);  // Pause before typing the new phrase
+            return;
+        }
+    } else {
+        typewriter.textContent = currentText.slice(0, currentLetter++);
+        if (currentLetter > currentText.length) {
+            isDeleting = true;
+            setTimeout(type, 1000);  // Pause before deleting the current phrase
+            return;
         }
     }
-    type();
+
+    setTimeout(type, isDeleting ? 40 : 100);
+}
+
+type();
+// reveal on scroll <p>
+document.addEventListener("DOMContentLoaded", () => {
+    const typewriter = document.getElementById('reveal-text');
+    const text = typewriter.textContent.trim();  // Trim any extra whitespace around the text
+    typewriter.textContent = '';  // Clear the text content initially
+    let currentLetter = 0;
+    let observerTriggered = false;
+
+    function type() {
+        // Use requestAnimationFrame for smoother animation
+        requestAnimationFrame(() => {
+            if (currentLetter < text.length) {
+                typewriter.textContent += text.charAt(currentLetter++);
+                setTimeout(type, 20);  // Use setTimeout for typing interval
+            }
+        });
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting && !observerTriggered) {
+                observerTriggered = true;  // Prevent the typing effect from running multiple times
+                type();
+            }
+        });
+    }, {
+        threshold: 0.1  // Trigger when 10% of the element is in view
+    });
+
+    observer.observe(typewriter);
 });
+
 // download cv code
 document.addEventListener("DOMContentLoaded", function () {
     // Select the download button
@@ -54,12 +111,45 @@ document.addEventListener("DOMContentLoaded", function () {
         document.body.removeChild(link);
     });
 });
-// dark/light mode
+// lightmode
 document.addEventListener('DOMContentLoaded', function () {
     const toggleButton = document.getElementById('toggle-dark-mode');
+    const body = document.body;
 
+    // Function to set the initial mode based on localStorage
+    const setInitialMode = () => {
+        const mode = localStorage.getItem('mode');
+        if (mode === 'light-mode') {
+            enableLightMode();
+        } else {
+            enableDarkMode();
+        }
+    };
+
+    // Function to enable light mode
+    const enableLightMode = () => {
+        body.classList.add('light-mode');
+        toggleButton.checked = true; // Ensures the toggle remains checked
+    };
+
+    // Function to enable dark mode
+    const enableDarkMode = () => {
+        body.classList.remove('light-mode');
+        toggleButton.checked = false; // Ensures the toggle remains unchecked
+    };
+
+    // Set initial mode when the DOM is loaded
+    setInitialMode();
+
+    // Toggle mode when button is clicked
     toggleButton.addEventListener('click', function () {
-        document.body.classList.toggle('light-mode');
+        if (body.classList.contains('light-mode')) {
+            enableDarkMode();
+            localStorage.setItem('mode', 'dark-mode');
+        } else {
+            enableLightMode();
+            localStorage.setItem('mode', 'light-mode');
+        }
     });
 });
 // reveal section
@@ -79,3 +169,4 @@ document.addEventListener("DOMContentLoaded", function () {
 
     window.addEventListener("scroll", revealOnScroll);
 });
+// reveal header
