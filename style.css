@@ -529,8 +529,6 @@ body {
     width: 100px;
     height: 100px;
     object-fit: cover;
-    border-color: #9747ff;
-    box-shadow: 0 0 10px 5px #9747ff;
 }
 
 .swiper {
@@ -550,8 +548,6 @@ body {
     height: 80%;
     width: 80%;
     max-height: 80vh;
-    border-color: #9747ff;
-    box-shadow: 0 0 10px 5px #9747ff;
 }
 
 .mySwiper {
@@ -578,6 +574,11 @@ body {
     width: 100%;
     height: 100%;
     object-fit: cover;
+}
+
+.swiper-slide img {
+    border: 3px solid #9747ff;
+    box-shadow: 0 0 5px 3px #9747ff
 }
 
 /* swiper */
