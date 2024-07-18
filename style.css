@@ -730,8 +730,7 @@ body {
     width: 320px
 }
 
-@media screen and (max-width:1200px),
-screen and (max-width:600px),
+@media screen and (max-width:600px),
 screen and (max-width:900px) {
     #toggle-dark-mode {
         right: 80px;
@@ -745,7 +744,12 @@ screen and (max-width:900px) {
     }
 
     .nav-item {
-        padding-right: 20px
+        padding-right: 35px
+    }
+
+    .nav-item #toggle-dark-mode {
+        right: 10px;
+        top: 20px
     }
 
     .nav-link {
@@ -756,6 +760,145 @@ screen and (max-width:900px) {
         height: auto;
         padding: 5%;
     }
+
+
+
+    .item1 .txt1,
+    .item1 .txt2,
+    .item1 h5 {
+        font-size: 24px
+    }
+
+    .item1 h1 {
+        font-size: 48px
+    }
+
+    .item1 p {
+        font-size: 16px
+    }
+
+    .ellipse {
+        height: 200px;
+        left: 50%;
+        top: 90%;
+        transform: translate(-50%, -80%);
+        width: 200px
+    }
+
+    .image1 {
+        height: 300px
+    }
+
+    .image2 {
+        height: 400px
+    }
+
+    .item3 .socials {
+        font-size: 24px;
+        padding-right: 10px
+    }
+
+    .item3 .button1 {
+        font-size: 18px;
+        height: 50px;
+        padding: 0 20px
+    }
+
+    .hero2,
+    .hero3,
+    .hero4 {
+        height: auto;
+        padding: 5%;
+    }
+
+    .hero2 .heading,
+    .hero3 .heading,
+    .hero4 .heading {
+        font-size: 40px;
+        margin: 50px 0
+    }
+
+    .hero2 .about,
+    .hero2 .about2,
+    .hero3 .about,
+    .hero3 .about2,
+    .hero4 .about,
+    .hero4 .about2 {
+        font-size: 30px
+    }
+
+    .hero2 .square,
+    .hero3 .square {
+        height: auto;
+        margin: 20px;
+        width: 80%
+    }
+
+    .hero2 .boxImg,
+    .hero3 .boxImg {
+        font-size: 40px;
+        margin-bottom: 20px
+    }
+
+    .hero2 .boxTxt,
+    .hero3 .boxTxt {
+        font-size: 24px
+    }
+
+    .hero3 img {
+        height: auto;
+        width: 80%
+    }
+
+    .hero4 .form,
+    .hero4 .leftBox {
+        padding: 10px
+    }
+
+    .form h2 {
+        font-size: 24px;
+        width: 140px
+    }
+
+    .form input {
+        font-size: 16px
+    }
+
+    .form button {
+        padding: 10px 20px
+    }
+
+    .form div {
+        padding: 10px;
+        width: 260px
+    }
+}
+
+
+@media screen and (max-width:1000px) {
+    .navbar-brand {
+        font-size: 30px
+    }
+
+    .nav-item {
+        padding-right: 35px
+    }
+
+    .nav-item #toggle-dark-mode {
+        top: 10%;
+        right: 10%;
+    }
+
+    .nav-link {
+        font-size: 16px
+    }
+
+    .hero {
+        height: auto;
+        padding: 5%;
+    }
+
+
 
     .item1 .txt1,
     .item1 .txt2,
@@ -875,6 +1018,11 @@ screen and (max-width:900px) {
 
     .nav-item {
         padding-right: 20px
+    }
+
+    .nav-item #toggle-dark-mode {
+        top: 10%;
+        right: 15%;
     }
 
     .nav-link {
