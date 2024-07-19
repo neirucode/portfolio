@@ -36,14 +36,26 @@ function startGame() {
     animate(0);
 }
 
+function isClickInsideCanvas(x, y) {
+    const rect = canvas.getBoundingClientRect();
+    return x >= rect.left && x <= rect.right && y >= rect.top && y <= rect.bottom;
+}
+
 window.addEventListener('click', function (e) {
-    if (gameOver) {
+    const x = e.clientX;
+    const y = e.clientY;
+
+    if (gameOver && isClickInsideCanvas(x, y)) {
         alert('Game over! Your score is: ' + score + '. Please reload the page to start a new game.');
-    } else {
+        return;
+    }
+
+    if (!gameOver && isClickInsideCanvas(x, y)) {
         const rect = canvas.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-        const detectPixelColor = collisionCtx.getImageData(x, y, 1, 1).data;
+        const canvasX = x - rect.left;
+        const canvasY = y - rect.top;
+        const detectPixelColor = collisionCtx.getImageData(canvasX, canvasY, 1, 1).data;
+
         ravens.forEach(object => {
             if (object.randomColors[0] === detectPixelColor[0] &&
                 object.randomColors[1] === detectPixelColor[1] &&
@@ -66,13 +78,15 @@ class Layer {
         this.speedModifier = speedModifier;
         this.speed = gameSpeed * this.speedModifier;
     }
+
     update() {
         this.speed = gameSpeed * this.speedModifier;
         if (this.x <= -this.width) {
             this.x = 0;
         }
-        this.x = this.x - this.speed;
+        this.x -= this.speed;
     }
+
     draw() {
         ctx.drawImage(this.image, this.x, this.y, this.width, this.height);
         ctx.drawImage(this.image, this.x + this.width, this.y, this.width, this.height);
@@ -117,6 +131,7 @@ class Raven {
         this.color = `rgb(${this.randomColors[0]},${this.randomColors[1]},${this.randomColors[2]})`;
         this.hasTrail = Math.random() > 0.5;
     }
+
     update(deltatime) {
         this.x -= this.directionX * gameSpeed; // Increase speed with gameSpeed
         this.y += this.directionY;
@@ -136,6 +151,7 @@ class Raven {
         }
         if (this.x < 0 - this.width) gameOver = true;
     }
+
     draw() {
         collisionCtx.fillStyle = this.color;
         collisionCtx.fillRect(this.x, this.y, this.width, this.height);
@@ -161,6 +177,7 @@ class Explosion {
         this.frameInterval = 200;
         this.markedForDeletion = false;
     }
+
     update(deltatime) {
         if (this.frame === 0) this.sound.play();
         this.timeSinceLastFrame += deltatime;
@@ -170,6 +187,7 @@ class Explosion {
             if (this.frame > 5) this.markedForDeletion = true;
         }
     }
+
     draw() {
         ctx.drawImage(this.image, this.frame * this.spriteWidth, 0, this.spriteWidth, this.spriteHeight,
             this.x, this.y - this.size / 4, this.size, this.size);
@@ -188,11 +206,13 @@ class Particle {
         this.speedX = Math.random() * 1 + 0.5;
         this.color = color;
     }
+
     update() {
         this.x += this.speedX;
         this.radius += 0.3;
         if (this.radius > this.maxRadius - 5) this.markedForDeletion = true;
     }
+
     draw() {
         ctx.save();
         ctx.globalAlpha = 1 - this.radius / this.maxRadius;
