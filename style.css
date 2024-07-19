@@ -107,7 +107,8 @@ body {
 }
 
 .light-mode,
-.light-mode img {
+.light-mode img,
+.light-mode canvas {
     filter: invert(95%) hue-rotate(180deg)
 }
 
@@ -510,7 +511,6 @@ body {
 }
 
 /* game section */
-
 #canvas1 {
     border: 3px solid #9747ff;
     box-shadow: 0 0 10px 5px #9747ff;

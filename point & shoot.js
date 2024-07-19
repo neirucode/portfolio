@@ -28,34 +28,32 @@ backgroundLayer5.src = 'gameResources/bg/layer-5.png';
 function startGame() {
     gameOver = false;
     score = 0;
-    gameSpeed = 1; // Reset game speed
-    console.log('Game started. Initial gameSpeed:', gameSpeed); // Check initial gameSpeed
-    lastTime = 0;
+    gameSpeed = 1; // Reset game speed to its initial value
+    lastTime = 0;  // Reset lastTime to ensure deltatime starts from 0
     ravens = [];
     explosions = [];
     particles = [];
     animate(0);
 }
 
-
 window.addEventListener('click', function (e) {
     if (gameOver) {
-        startGame();
-        return;
+        alert('Game over! Your score is: ' + score + '. Please reload the page to start a new game.');
+    } else {
+        const rect = canvas.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        const detectPixelColor = collisionCtx.getImageData(x, y, 1, 1).data;
+        ravens.forEach(object => {
+            if (object.randomColors[0] === detectPixelColor[0] &&
+                object.randomColors[1] === detectPixelColor[1] &&
+                object.randomColors[2] === detectPixelColor[2]) {
+                object.markedForDeletion = true;
+                score++;
+                explosions.push(new Explosion(object.x, object.y, object.width));
+            }
+        });
     }
-
-    const rect = canvas.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
-    const detectPixelColor = collisionCtx.getImageData(x, y, 1, 1).data;
-    ravens.forEach(object => {
-        if (object.randomColors[0] === detectPixelColor[0] && object.randomColors[1] === detectPixelColor[1] &&
-            object.randomColors[2] === detectPixelColor[2]) {
-            object.markedForDeletion = true;
-            score++;
-            explosions.push(new Explosion(object.x, object.y, object.width));
-        }
-    });
 });
 
 class Layer {
@@ -212,7 +210,7 @@ function drawScore() {
     ctx.textBaseline = 'top';
     ctx.fillStyle = 'black';
     ctx.fillText('Score: ' + score, 20, 20); // Adjusted position
-    ctx.fillStyle = 'white';
+    ctx.fillStyle = '#9747ff';
     ctx.fillText('Score: ' + score, 22, 22); // Slightly offset for better readability
 }
 
@@ -220,20 +218,23 @@ function drawGameOver() {
     ctx.textAlign = 'center';
     ctx.fillStyle = 'black';
     ctx.fillText('GAME OVER, your score is ' + score, canvas.width / 2, canvas.height / 2);
-    ctx.fillStyle = 'white';
-    ctx.fillText('GAME OVER, your score is ' + score, canvas.width / 2 + 5, canvas.height / 2 + 5);
+    ctx.fillStyle = '#9747ff';
+    ctx.fillText('GAME OVER, your score is ' + score, canvas.width / 2 + 4, canvas.height / 2 + 4);
 }
+
 function animate(timestamp) {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     collisionCtx.clearRect(0, 0, canvas.width, canvas.height);
+
+    // Calculate the delta time
+    let deltatime = timestamp - lastTime;
+    lastTime = timestamp; // Update lastTime to the current timestamp
 
     gameObjects.forEach(object => {
         object.update();
         object.draw();
     });
 
-    let deltatime = timestamp - lastTime;
-    lastTime = timestamp;
     timeToNextRaven += deltatime;
     if (timeToNextRaven > ravenInterval) {
         ravens.push(new Raven());
@@ -258,5 +259,6 @@ function animate(timestamp) {
         drawGameOver();
     }
 }
+
 // Initialize the game
 startGame();
