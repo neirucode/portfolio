@@ -509,6 +509,27 @@ body {
     color: #606ff1
 }
 
+/* game section */
+
+#canvas1 {
+    border: 3px solid #9747ff;
+    box-shadow: 0 0 10px 5px #9747ff;
+    width: 1000px;
+    height: 600px;
+    z-index: 10000;
+}
+
+#collisionCanvas {
+    opacity: 0;
+    position: absolute;
+    top: 50;
+    left: 50;
+    translate: (-50%, -50%);
+    width: 1000px;
+    height: 600px;
+    z-index: 9999;
+}
+
 /* swiper */
 
 .swiper {
