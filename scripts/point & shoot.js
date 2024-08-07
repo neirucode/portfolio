@@ -126,7 +126,7 @@ let explosions = [];
 class Explosion {
     constructor(x, y, size) {
         this.image = new Image();
-        this.image.src = 'gameResources/reso/boom.png';
+        this.image.src = 'gameResources/resources/boom.png';
         this.spriteWidth = 200;
         this.spriteHeight = 179;
         this.size = size;
@@ -134,7 +134,7 @@ class Explosion {
         this.y = y;
         this.frame = 0;
         this.sound = new Audio();
-        this.sound.src = 'gameResources/reso/Fire impact 1.wav';
+        this.sound.src = 'gameResources/resources/Fire impact 1.wav';
         this.timeSinceLastFrame = 0;
         this.frameInterval = 200;
         this.markedForDeletion = false;
