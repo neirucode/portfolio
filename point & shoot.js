@@ -28,8 +28,8 @@ backgroundLayer5.src = 'gameResources/bg/layer-5.png';
 function startGame() {
     gameOver = false;
     score = 0;
-    gameSpeed = 1; // Reset game speed to its initial value
-    lastTime = 0;  // Reset lastTime to ensure deltatime starts from 0
+    gameSpeed = 1; 
+    lastTime = 0;  
     ravens = [];
     explosions = [];
     particles = [];

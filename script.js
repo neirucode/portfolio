@@ -64,7 +64,7 @@ function type() {
 
 type();
 // reveal on scroll <p>
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("load", () => {
     const typewriter = document.getElementById('reveal-text');
     const text = typewriter.textContent.trim();  // Trim any extra whitespace around the text
     typewriter.textContent = '';  // Clear the text content initially
@@ -96,7 +96,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 // download cv code
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener('DOMContentLoaded', function () {
     // Select the download button
     const downloadButton = document.getElementById('download');
 
@@ -153,7 +153,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 // reveal section
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener('DOMContentLoaded', function () {
     const revealSection = document.querySelector(".reveal-section");
 
     function revealOnScroll() {
