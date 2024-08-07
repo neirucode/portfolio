@@ -1,17 +1,22 @@
 const canvas = document.getElementById('canvas1');
 const ctx = canvas.getContext('2d', { willReadFrequently: true });
-canvas.width = 1000; // Set to your desired width
-canvas.height = 600; // Set to your desired height
+canvas.width = 1000;
+canvas.height = 600;
 
 const collisionCanvas = document.getElementById('collisionCanvas');
 const collisionCtx = collisionCanvas.getContext('2d', { willReadFrequently: true });
-collisionCanvas.width = 1000; // Set to your desired width
-collisionCanvas.height = 600; // Set to your desired height
+collisionCanvas.width = 1000;
+collisionCanvas.height = 600;
 
 let score = 0;
 let gameOver = false;
 let gameSpeed = 1;
 let lastTime = 0;
+let animationId;
+let isPaused = false;
+let gameStarted = false;
+let incrementSpeedInterval;
+
 ctx.font = '50px Impact';
 
 const backgroundLayer1 = new Image();
@@ -25,49 +30,6 @@ backgroundLayer4.src = 'gameResources/bg/layer-4.png';
 const backgroundLayer5 = new Image();
 backgroundLayer5.src = 'gameResources/bg/layer-5.png';
 
-function startGame() {
-    gameOver = false;
-    score = 0;
-    gameSpeed = 1; 
-    lastTime = 0;  
-    ravens = [];
-    explosions = [];
-    particles = [];
-    animate(0);
-}
-
-function isClickInsideCanvas(x, y) {
-    const rect = canvas.getBoundingClientRect();
-    return x >= rect.left && x <= rect.right && y >= rect.top && y <= rect.bottom;
-}
-
-window.addEventListener('click', function (e) {
-    const x = e.clientX;
-    const y = e.clientY;
-
-    if (gameOver && isClickInsideCanvas(x, y)) {
-        alert('Game over! Your score is: ' + score + '. Please reload the page to start a new game.');
-        return;
-    }
-
-    if (!gameOver && isClickInsideCanvas(x, y)) {
-        const rect = canvas.getBoundingClientRect();
-        const canvasX = x - rect.left;
-        const canvasY = y - rect.top;
-        const detectPixelColor = collisionCtx.getImageData(canvasX, canvasY, 1, 1).data;
-
-        ravens.forEach(object => {
-            if (object.randomColors[0] === detectPixelColor[0] &&
-                object.randomColors[1] === detectPixelColor[1] &&
-                object.randomColors[2] === detectPixelColor[2]) {
-                object.markedForDeletion = true;
-                score++;
-                explosions.push(new Explosion(object.x, object.y, object.width));
-            }
-        });
-    }
-});
-
 class Layer {
     constructor(image, speedModifier) {
         this.x = 0;
@@ -76,7 +38,7 @@ class Layer {
         this.height = canvas.height;
         this.image = image;
         this.speedModifier = speedModifier;
-        this.speed = gameSpeed * this.speedModifier;
+        this.speed = 0; // Initially stop the background
     }
 
     update() {
@@ -133,7 +95,7 @@ class Raven {
     }
 
     update(deltatime) {
-        this.x -= this.directionX * gameSpeed; // Increase speed with gameSpeed
+        this.x -= this.directionX * gameSpeed;
         this.y += this.directionY;
         if (this.y < 0 || this.y > canvas.height - this.height) {
             this.directionY *= -1;
@@ -207,8 +169,8 @@ class Particle {
         this.color = color;
     }
 
-    update() {
-        this.x += this.speedX;
+    update(deltatime) {
+        this.x += this.speedX * gameSpeed;
         this.radius += 0.3;
         if (this.radius > this.maxRadius - 5) this.markedForDeletion = true;
     }
@@ -225,60 +187,134 @@ class Particle {
 }
 
 function drawScore() {
-    ctx.font = '50px Impact';
+    ctx.save();
     ctx.textAlign = 'left';
     ctx.textBaseline = 'top';
+    ctx.font = '50px Impact';
     ctx.fillStyle = 'black';
-    ctx.fillText('Score: ' + score, 20, 20); // Adjusted position
-    ctx.fillStyle = '#9747ff';
-    ctx.fillText('Score: ' + score, 22, 22); // Slightly offset for better readability
+    ctx.fillText('Score: ' + score, 50, 75);
+    ctx.fillStyle = '#606ff1';
+    ctx.fillText('Score: ' + score, 55, 80);
+    ctx.restore();
 }
 
 function drawGameOver() {
     ctx.textAlign = 'center';
     ctx.fillStyle = 'black';
-    ctx.fillText('GAME OVER, your score is ' + score, canvas.width / 2, canvas.height / 2);
-    ctx.fillStyle = '#9747ff';
-    ctx.fillText('GAME OVER, your score is ' + score, canvas.width / 2 + 4, canvas.height / 2 + 4);
+    ctx.fillText('GAME OVER', canvas.width / 2, canvas.height / 2);
+    ctx.fillStyle = '#ffdd00';
+    ctx.fillText('GAME OVER', canvas.width / 2 + 5, canvas.height / 2 + 5);
+    ctx.fillStyle = 'black';
+    ctx.fillText('Your score is: ' + score, canvas.width / 2 + 2.5, canvas.height / 2 + 75);
+    ctx.fillStyle = '#ffdd00';
+    ctx.fillText('Your score is: ' + score, canvas.width / 2 + 5, canvas.height / 2 + 80);
 }
 
 function animate(timestamp) {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     collisionCtx.clearRect(0, 0, canvas.width, canvas.height);
-
-    // Calculate the delta time
-    let deltatime = timestamp - lastTime;
-    lastTime = timestamp; // Update lastTime to the current timestamp
-
+    let deltaTime = timestamp - lastTime;
+    lastTime = timestamp;
     gameObjects.forEach(object => {
         object.update();
         object.draw();
     });
-
-    timeToNextRaven += deltatime;
+    timeToNextRaven += deltaTime;
     if (timeToNextRaven > ravenInterval) {
         ravens.push(new Raven());
         timeToNextRaven = 0;
         ravens.sort((a, b) => a.width - b.width);
     }
-
-    if (!gameOver) {
-        gameSpeed += deltatime * 0.0001; // Increase game speed over time only when the game is running
-    }
-
     drawScore();
-    [...particles, ...ravens, ...explosions].forEach(object => object.update(deltatime));
+    [...particles, ...ravens, ...explosions].forEach(object => object.update(deltaTime));
     [...particles, ...ravens, ...explosions].forEach(object => object.draw());
     ravens = ravens.filter(object => !object.markedForDeletion);
     explosions = explosions.filter(object => !object.markedForDeletion);
     particles = particles.filter(object => !object.markedForDeletion);
-
     if (!gameOver) {
-        requestAnimationFrame(animate);
+        animationId = requestAnimationFrame(animate);
     } else {
         drawGameOver();
+        gameSpeed = 1;
+        document.getElementById('startButton').style.display = 'block';
+        document.getElementById('pauseButton').style.display = 'none';
+        document.getElementById('continueButton').style.display = 'none';
     }
 }
 
-// Initialize the game
-startGame();
+function startGame() {
+    gameOver = false;
+    score = 0;
+    gameSpeed = 1;
+    lastTime = 0;
+    ravens = [];
+    explosions = [];
+    particles = [];
+    gameStarted = true;
+    document.getElementById('startButton').style.display = 'none';
+    document.getElementById('pauseButton').style.display = 'block';
+    document.getElementById('continueButton').style.display = 'none';
+    document.getElementById('introText').style.display = 'none';
+    animate(0);
+
+    incrementSpeedInterval = setInterval(() => {
+        if (!isPaused && !gameOver) {
+            gameSpeed += 0.1;
+        }
+    }, 1000);
+}
+
+function pauseGame() {
+    isPaused = true;
+    cancelAnimationFrame(animationId);
+    clearInterval(incrementSpeedInterval); // Stop speed increment
+    document.getElementById('pauseButton').style.display = 'none';
+    document.getElementById('continueButton').style.display = 'block';
+}
+
+function continueGame() {
+    if (isPaused) {
+        isPaused = false;
+        animate(0);
+        incrementSpeedInterval = setInterval(() => {
+            if (!isPaused && !gameOver) {
+                gameSpeed += 0.1;
+            }
+        }, 1000);
+    }
+    document.getElementById('continueButton').style.display = 'none';
+    document.getElementById('pauseButton').style.display = 'block';
+}
+
+document.getElementById('startButton').addEventListener('click', startGame);
+document.getElementById('pauseButton').addEventListener('click', pauseGame);
+document.getElementById('continueButton').addEventListener('click', continueGame);
+
+function isClickInsideCanvas(x, y) {
+    const rect = canvas.getBoundingClientRect();
+    return x >= rect.left && x <= rect.right && y >= rect.top && y <= rect.bottom;
+}
+
+window.addEventListener('click', function (e) {
+    if (!gameStarted || gameOver) return;
+
+    const x = e.clientX;
+    const y = e.clientY;
+
+    if (isClickInsideCanvas(x, y)) {
+        const rect = canvas.getBoundingClientRect();
+        const canvasX = x - rect.left;
+        const canvasY = y - rect.top;
+        const detectPixelColor = collisionCtx.getImageData(canvasX, canvasY, 1, 1).data;
+
+        ravens.forEach(object => {
+            if (object.randomColors[0] === detectPixelColor[0] &&
+                object.randomColors[1] === detectPixelColor[1] &&
+                object.randomColors[2] === detectPixelColor[2]) {
+                object.markedForDeletion = true;
+                score++;
+                explosions.push(new Explosion(object.x, object.y, object.width));
+            }
+        });
+    }
+});

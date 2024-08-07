@@ -11,6 +11,7 @@ body {
     position: relative;
     overflow-x: hidden;
     font-family: "Readex Pro";
+    height: 100%;
 }
 
 #scrollToTopBtn {
@@ -317,6 +318,7 @@ body {
 }
 
 .item3 .custom-hr {
+    padding-top: 20px;
     background-color: #fff;
     border-radius: 5px;
     color: #fff;
@@ -692,6 +694,73 @@ body {
     margin: 0;
     padding: 20px 30px;
     width: 90%
+}
+
+/* Center the buttons */
+#buttons {
+    position: absolute;
+    top: 90%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+/* Style the game buttons */
+.game-button {
+    display: block;
+    margin: 10px;
+    padding: 15px 30px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #fff;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    outline: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Start Button */
+#startButton {
+    background: linear-gradient(135deg, #ff6b6b, #f06595);
+}
+
+/* Pause Button */
+#pauseButton {
+    background: linear-gradient(135deg, #ffdd00, #f8a107);
+}
+
+/* Continue Button */
+#continueButton {
+    background: linear-gradient(135deg, #00b894, #00cec9);
+}
+
+/* Hover and Focus Effects */
+.game-button:hover,
+.game-button:focus {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Active Button Effect */
+.game-button:active {
+    transform: scale(0.95);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+#introText {
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #606ff1;
+    font-size: 24px;
+    text-align: center;
+    font-family: 'Impact', sans-serif;
+    z-index: 10;
+    /* Ensure the text is above the canvas */
 }
 
 .form h2 {
