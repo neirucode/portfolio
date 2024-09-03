@@ -205,3 +205,22 @@ var swiper2 = new Swiper(".mySwiper2", {
         swiper: swiper,
     },
 });
+
+
+// function loadFeaturedBlogs(photos) {
+//     const shuffledPhotos = photos.sort(() => 0.5 - Math.random()).slice(0, numImages);
+
+//     featuredBlogsContainer.innerHTML = ''; // Clear previous content
+
+//     shuffledPhotos.forEach(photo => {
+//         const listItem = document.createElement('li');
+//         listItem.innerHTML = `
+//         <img src="${photo.urls.small}" alt="${photo.alt_description}">
+//         <div class="overlays">
+//             <p>Features</p>
+//             <h3>${photo.alt_description || "No title available"}</h3>
+//         </div>`;
+//         featuredBlogsContainer.appendChild(listItem);
+//     });
+// }
+

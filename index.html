@@ -53,7 +53,7 @@
             <div class="hero" id="home-section">
                 <br>
                 <div class="row">
-                    <div class="col-lg-6 item1 mt-5">
+                    <div class="col-lg-6 item1 mt-2">
                         <h5>Hello It's me</h5>
                         <h1>Neil Fernando</h1>
                         <span class="txt1">And I'm a </span>
@@ -82,15 +82,15 @@
                     </div>
                 </div>
             </div>
-            <!-- hero2 -->
-            <div class="hero2" id="about-section" href="#about-section">
-                <div class="heroBg">
+            <!-- about -->
+            <div class="about__section" id="about-section" href="#about-section">
+                <div class="about__background reveal-section">
                     <div class="heading">
                         <span class="about">About</span>
                         <span class="about2">Me</span>
                     </div>
-                    <div class="grid-container reveal-section">
-                        <div class="grid-item">
+                    <div class="row d-flex justify-content-center align-items-center ">
+                        <div class="col-md-4 d-flex justify-content-center">
                             <div class="square">
                                 <a href="https://github.com/neirucode">
                                     <div class="boxContent">
@@ -100,7 +100,7 @@
                                 </a>
                             </div>
                         </div>
-                        <div class="grid-item">
+                        <div class="col-md-4 d-flex justify-content-center">
                             <div class="square">
                                 <a
                                     href="https://www.figma.com/files/team/1289900501524023588/Jerry-Neil-F.'s-team?fuid=1289900499748453369">
@@ -111,7 +111,7 @@
                                 </a>
                             </div>
                         </div>
-                        <div class="grid-item">
+                        <div class="col-md-4 d-flex justify-content-center">
                             <div class="square">
                                 <a href="#">
                                     <div class="boxContent">
@@ -124,45 +124,86 @@
                     </div>
                 </div>
             </div>
-            <!-- hero3 -->
-            <div class="hero3" id="project-section" href="#project-section">
-                <div class="heading m-5">
-                    <span class="about">My</span>
-                    <span class="about2">Projects</span>
-                </div>
-                <div style="--swiper-navigation-color: #fff; --swiper-pagination-color: #fff" class="swiper mySwiper2">
-                    <div class="swiper-wrapper">
-                        <div class="swiper-slide">
-                            <img src="images/dento showcase.png" />
-                        </div>
-                        <div class="swiper-slide">
-                            <a href="https://neirucode.github.io/HotelWeb/"><img src="images/hotel showcase.png" /></a>
-                        </div>
-                        <div class="swiper-slide">
-                            <a href="https://neirucode.github.io/Blog-Website/"><img
-                                    src="images/verrnile showcase.png" /></a>
+            <!-- project__section -->
+            <div class="project__section" id="project-section" href="#project-section">
+                <div class="row">
+                    <div class="col-lg-4">
+                        <div class="project__card">
+                            <h1>My Projects</h1>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                Debitis dolor accusamus eveniet ratione perspiciatis quo recusandae omnis
+                                accusantium,
+                                harum amet!</p>
                         </div>
                     </div>
-                    <!-- <div class="swiper-button-next"></div>
-                    <div class="swiper-button-prev"></div> -->
-                </div>
-                <div thumbsSlider="" class="swiper mySwiper">
-                    <div class="swiper-wrapper">
-                        <div class="swiper-slide">
-                            <img src="images/dento showcase.png" />
-                        </div>
-                        <div class="swiper-slide">
-                            <img src="images/hotel showcase.png" />
-                        </div>
-                        <div class="swiper-slide">
-                            <img src="images/verrnile showcase.png" />
+                    <div class="col-lg-8">
+                        <div class="scroller">
+                            <ul class="scroller__inner">
+                                <li>
+                                    <a href="https://github.com/neirucode/dentofarm">
+                                        <img src="images/dento showcase.png" alt="">
+                                    </a>
+                                    <!-- <div class="overlays">
+                                            <p>Dentofarm Resort</p>
+                                            <h3>This was my recent project</h3>
+                                        </div> -->
+                                </li>
+                                <li>
+                                    <a href="https://neirucode.github.io/Blog-Website/">
+                                        <img src="images/vernile showcase.png" alt="">
+                                    </a>
+                                    <!-- <div class="overlays">
+                                            <p>Vernile</p>
+                                            <h3>${photo.alt_description || "No title available"}</h3>
+                                        </div> -->
+                                </li>
+                                <li>
+                                    <a href="https://neirucode.github.io/HotelWeb/">
+                                        <img src="images/hotel showcase.png" alt="">
+                                    </a>
+                                    <!-- <div class="overlays">
+                                            <p>Hotel Booking</p>
+                                            <h3>${photo.alt_description || "No title available"}</h3>
+                                        </div> -->
+                                </li>
+                                <li>
+                                    <a href="https://github.com/neirucode/dentofarm">
+                                        <img src="images/dento showcase.png" alt="">
+                                    </a>
+                                    <!-- <div class="overlays">
+                                            <p>Dentofarm Resort</p>
+                                            <h3>This was my recent project</h3>
+                                        </div> -->
+                                </li>
+                                <li>
+                                    <a href="https://neirucode.github.io/Blog-Website/">
+                                        <img src="images/vernile showcase.png" alt="">
+                                    </a>
+                                    <!-- <div class="overlays">
+                                            <p>Vernile</p>
+                                            <h3>${photo.alt_description || "No title available"}</h3>
+                                        </div> -->
+                                </li>
+                                <li>
+                                    <a href="https://neirucode.github.io/HotelWeb/">
+                                        <img src="images/hotel showcase.png" alt="">
+                                    </a>
+                                    <!-- <div class="overlays">
+                                            <p>Hotel Booking</p>
+                                            <h3>${photo.alt_description || "No title available"}</h3>
+                                        </div> -->
+                                </li>
+
+                            </ul>
                         </div>
                     </div>
+
+
                 </div>
-                <hr class="custom-hr">
             </div>
+
             <!-- Go Play Section -->
-            <div class="hero3" id="games-section">
+            <!-- <div class="project__section" id="games-section">
                 <div class="heading m-3">
                     <span class="about">mini</span>
                     <span class="about2">Game <i class="bi bi-joystick"></i></span>
@@ -178,9 +219,9 @@
                     </div>
                 </div>
                 <hr class="custom-hr">
-            </div>
+            </div> -->
             <!-- -->
-            <div class="hero4" id="contact-section" href="#contact-section">
+            <div class="contact__section" id="contact-section" href="#contact-section">
                 <div class="contactBg">
                     <div class="heading">
                         <span class="about">Contact</span>
@@ -215,6 +256,7 @@
                     <button id="scrollToTopBtn" title="Go to top"><i class="bi bi-chevron-up"></i></button>
                 </div>
             </div>
+
         </div>
     </div>
     <script src="https://cdn.emailjs.com/dist/email.min.js"></script>

@@ -133,8 +133,8 @@ class Explosion {
         this.x = x;
         this.y = y;
         this.frame = 0;
-        this.sound = new Audio();
-        this.sound.src = 'gameResources/resources/Fire impact 1.wav';
+        // this.sound = new Audio();
+        // this.sound.src = 'gameResources/resources/Fire impact 1.wav';
         this.timeSinceLastFrame = 0;
         this.frameInterval = 200;
         this.markedForDeletion = false;
