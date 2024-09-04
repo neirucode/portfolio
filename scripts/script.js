@@ -224,3 +224,13 @@ var swiper2 = new Swiper(".mySwiper2", {
 //     });
 // }
 
+
+// let rows = 5;
+
+// for (let i = 1; i <= rows; i++) {
+//     let pattern = "";
+//     for (let j = 1; j <= rows; i++) {
+//         pattern += "*";
+//     }
+//     console.log(pattern);
+// }
