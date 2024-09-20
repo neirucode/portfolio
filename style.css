@@ -838,7 +838,6 @@ h2 {
 @media only screen and (max-width: 600px) {
     .wrapper {
         width: 100%;
-        min-width: 100svw;
         margin: 0;
         padding: 0;
     }
