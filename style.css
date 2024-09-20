@@ -905,6 +905,7 @@ h2 {
     .about__section {
         height: 100%;
         width: 100%;
+        padding: 0 5%;
     }
 
     .showcase-container {
@@ -916,7 +917,7 @@ h2 {
             "education"
             "experience"
             "skills";
-        padding: 1rem;
+        padding: 0;
         margin: 0;
         height: auto;
     }
@@ -938,12 +939,6 @@ h2 {
         font-size: .875rem;
     }
 
-    .showcase-container .logo-container {
-        overflow: hidden;
-        padding: 3rem 0;
-    }
-
-
     .showcase-container .logo-slider {
         white-space: wrap;
     }
@@ -954,29 +949,23 @@ h2 {
         margin-right: 2.5rem;
     }
 
-
-
     .project__section {
         height: 100%;
         width: 100%;
         align-items: center;
+        padding: 0 5%;
+        margin: 0;
         padding: 0;
     }
 
-    .project__section project__card {
+    .project__section .project__card {
         width: 100%;
+        padding: 0 5%;
+        margin: 0;
     }
 
     .project__section .scroller {
-        height: 50vh;
-    }
-
-    .project__section .scroller-inner {
-        height: 50vh;
-    }
-
-    .project__section .scroller img {
-        height: 100%;
+        display: none;
     }
 
     .project__section h2 {
@@ -996,7 +985,7 @@ h2 {
     .contact__section {
         height: 100%;
         max-height: 100%;
-        padding: 0;
+        padding: 0 5%;
         margin: 0;
         justify-content: center;
         align-content: center;
