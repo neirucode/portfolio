@@ -86,6 +86,8 @@ body {
 .wrapper {
     width: 100%;
     background-image: url(images/d3638313-742e-4227-8c11-a60694b9520b.jpg);
+    display: block;
+    z-index: 99999;
     --bs-gutter-x: 0;
     --bs-gutter-y: 0
 }
@@ -107,8 +109,9 @@ body {
 .navbar-toggler {
     background-color: none;
     border: none;
-    color: var(--indigo);
-    font-size: 2.5rem;
+    background-color: var(--indigo);
+    color: var(--purple);
+    font-size: 1.5rem;
     font-weight: 900;
 }
 
@@ -118,7 +121,7 @@ body {
     text-decoration: none;
     outline: 0;
     box-shadow: none;
-    color: var(--purple);
+    background-color: var(--purple);
 }
 
 
@@ -200,14 +203,16 @@ body {
 }
 
 .hero {
+    gap: 10px;
+    height: 100vh;
+    padding: 0 5% 0 5%;
+    width: 100%;
+    max-height: 90vh;
+    z-index: 9999;
     backdrop-filter: blur(3px);
     -webkit-backdrop-filter: blur(3px);
-    background: rgba(0, 0, 0, 0.65);
+    background: hsla(0, 0%, 6%, .9);
     color: var(--azure);
-    gap: 10px;
-    height: 90vh;
-    padding: 0 5% 0 5%;
-    width: 100%
 }
 
 .item1 {
@@ -216,17 +221,17 @@ body {
     z-index: 4
 }
 
-.item1 .txt1,
+.hero .item1 .txt1,
 .item1 h5 {
     font-size: 40px;
     font-weight: 700
 }
 
-.item1 .txt1 {
+.hero .item1 .txt1 {
     color: var(--white);
 }
 
-.item1 .txt2 {
+.hero .item1 .txt2 {
     animation: typing 4s steps(40) infinite, blink-caret .75s step-end infinite;
     border-right: .15em solid --indigo;
     color: var(--indigo);
@@ -262,26 +267,28 @@ body {
     }
 }
 
-.item1 h1 {
+.hero .item1 h1 {
     font-size: 85px;
     font-weight: 700
 }
 
-.item1 p {
-    font-size: 20px
+.hero .item1 p {
+    margin-top: 2rem;
+    line-height: 180%;
+    font-size: 1.4rem;
 }
 
-.item2 {
+.hero .item2 {
     color: #fff;
     margin-bottom: 50px
 }
 
-.ellipse,
+.hero .ellipse,
 .item2 {
     position: relative
 }
 
-.ellipse {
+.hero .ellipse {
     animation: pulsate 5s infinite;
     background-color: var(--azure);
     border: 32px solid var(--purple);
@@ -312,20 +319,20 @@ body {
     }
 }
 
-.image1 {
+.hero .image1 {
     height: 555px;
     left: 50%;
     top: 65%;
     z-index: 3
 }
 
-.image1,
+.hero .image1,
 .image2 {
     position: absolute;
     transform: translate(-50%, -50%)
 }
 
-.image2 {
+.hero .image2 {
     filter: blur(1px);
     height: 750px;
     left: 45%;
@@ -334,26 +341,24 @@ body {
     z-index: 2
 }
 
-.item3 {
+.hero .item3 {
     color: #fff;
     margin: 50px 0;
     z-index: 5
 }
 
-.item3 .socials {
+.hero .item3 .socials {
     color: #8450c0;
     font-size: 50px;
     padding-right: 30px;
     transition: shadow .3s ease, color .3s ease
 }
 
-.item3 .socials:hover {
+.hero .item3 .socials:hover {
     text-shadow: 0 0 2.5rem #d400ff, 0 0 5.5rem #d400ff, 0 0 6rem #d400ff, 0 0 9.5rem #d400ff
 }
 
-
-
-.item3 .button1 {
+.button1 {
     background-color: #4040b1;
     border: none;
     border-radius: 30px;
@@ -365,37 +370,42 @@ body {
     line-height: 30px;
     margin: 50px 0;
     padding: 0 50px;
-    text-align: center
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
 }
 
-.item3 .button1:hover {
+.button1:hover {
     background-color: #606ff1;
     text-shadow: 0 0 2.5rem #d400ff, 0 0 5.5rem #d400ff, 0 0 6rem #d400ff, 0 0 9.5rem #d400ff;
-    transform: scale(1.05)
+    transform: scale(1.05);
+    box-shadow:
+        4px 4px .6rem rgba(212, 0, 255, 0.4),
+        0 0 2rem rgba(212, 0, 255, 0.3),
+        0 0 3rem rgba(212, 0, 255, 0.2),
+        0 0 4rem rgba(212, 0, 255, 0.1);
+    text-shadow:
+        -1px -1px 0 #d400ff,
+        1px -1px 0 #d400ff,
+        -1px 1px 0 #d400ff,
+        1px 1px 0 var(--darkviolet);
+
+
 }
 
-.item3 .button1:active {
+.button1:active {
     background-color: #5050d1;
     transform: scale(.95)
 }
 
-.reveal-section {
-    margin-top: 50px;
-    opacity: 0;
-    padding: 50px;
-    transform: translateY(60px);
-    transition: opacity 1.5s ease-out, transform 1.5s ease-out
-}
-
-.reveal-section.reveal {
-    opacity: 1;
-    transform: translateY(0)
+.divider {
+    border: 5px solid var(--azure);
 }
 
 .about__section {
     background-color: var(--dark);
     flex-direction: column;
-    height: 100vh;
+    height: 120vh;
     text-align: center;
     z-index: 2;
 }
@@ -411,126 +421,167 @@ body {
     margin-bottom: 3rem;
 }
 
-.about__section .grid-container {
+.showcase-container {
     display: grid;
-    gap: 50px;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    justify-content: center;
-    padding: 0 50px
+    height: 100vh;
+    grid-auto-columns: 1fr;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 20px 20px;
+    grid-template-areas:
+        "intro skills"
+        "education experience"
+        "education experience";
+    justify-content: stretch;
+    justify-items: stretch;
+    align-items: stretch;
+    color: var(--white);
+    text-align: start;
+    padding: 3rem;
+    margin: 0 5rem;
+    font-size: 1rem;
 }
 
-.about__section .about,
-.about__section .about2 {
-    color: #fff;
-    font-size: 60px;
-    font-weight: 600;
-    margin-right: 10px
+.showcase-container h2 {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+
 }
 
-.about__section .about2 {
-    color: #606ff1
-}
-
-.about__section .square {
-    background-color: #000;
-    border-radius: 54px;
-    width: 80%;
-    max-width: 350px;
-    aspect-ratio: 1/1;
-    position: relative;
-    transition: drop-shadow .3s ease;
-    z-index: 5
-}
-
-.about__section .square:before {
-    border: 5px solid transparent;
-    border-radius: 54px;
-    bottom: -8px;
-    content: "";
-    left: -8px;
-    position: absolute;
-    right: -8px;
-    top: -8px;
-    transition: border-color .3s ease;
-    z-index: -1
-}
-
-.about__section .square:hover:before {
-    border-color: #9747ff;
-    filter: drop-shadow(0px 0px 50px #9747ff);
-    filter: blur(30px);
-}
-
-.about__section .square a {
-    color: inherit;
-    display: block;
-    text-decoration: none;
-}
-
-.about__section .boxContent {
-    align-items: center;
+.intro {
+    grid-area: intro;
     display: flex;
+    width: 50%;
     flex-direction: column;
-    height: 100%;
+    justify-self: center;
+    align-items: start;
+    text-align: start;
+    line-height: 180%;
+    font-size: 1.2rem;
+}
+
+.education {
+    grid-area: education;
+    width: 50%;
+    flex-direction: column;
+    justify-self: center;
+    align-items: start;
+    text-align: start;
+    font-size: 1rem;
+}
+
+.skills {
+    grid-area: skills;
+    width: 50%;
+    flex-direction: column;
+    justify-self: center;
+    align-items: start;
+    text-align: start;
+
+}
+
+.skills img {
+    height: 40px;
+    aspect-ratio: 1/1;
+    margin: 1rem;
+}
+
+.experience {
+    grid-area: experience;
+    width: 50%;
+    flex-direction: column;
+    justify-self: center;
+    align-items: start;
+    text-align: start;
+    line-height: 180%;
+    font-size: 1.4rem;
+}
+
+.section__cover {
+    display: flex;
+    align-items: center;
     justify-content: center;
-    min-height: 30vh;
-    width: 100%
+    height: 100vh;
+    font-size: 5rem;
+    font-family: 'Readex Pro';
+    font-weight: 900;
+    backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(3px);
+    background: hsla(0, 0%, 6%, .9);
+    color: var(--azure);
+    padding: 0 5% 0 5%;
+    text-align: center;
+    z-index: 0;
 }
 
-.about__section .boxImg {
-    color: #9747ff;
-    font-size: 80px;
-    margin-bottom: 50px
+.section__cover .about {
+    color: var(--azure);
 }
 
-.about__section .boxTxt {
-    color: #fff;
-    font-size: 50px;
-    font-weight: 600
+.section__cover .about2 {
+    color: var(--purple);
 }
 
 .project__section {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 90vh;
+    flex-direction: column;
+    height: 100%;
     backdrop-filter: blur(3px);
     -webkit-backdrop-filter: blur(3px);
     background: hsla(0, 0%, 6%, .9);
+    color: var(--azure);
     padding: 0 5% 0 5%;
     text-align: center;
-    z-index: 0
+    z-index: 0;
+    gap: 1.5rem;
 }
 
 .project__section .row {
     width: 100%;
-    height: 55%;
 }
-
 
 .project__card {
     display: flex;
-    align-items: center;
-    justify-content: center;
+    align-items: start;
+    justify-content: start;
     flex-direction: column;
+    text-align: start;
+    padding: 1.5rem;
+    line-height: 1.333;
+    max-width: 80%;
     height: 100%;
+    padding: 1rem;
     color: var(--white);
-    padding: 3rem;
-    backdrop-filter: blur(3.5px);
-    -webkit-backdrop-filter: blur(3.5px);
-    background: var(--purple);
-    border: 1px solid var(--purple);
     border-radius: 8px;
-    box-shadow: 0 0 20px var(--indigo),
+}
 
+.project__card p,
+h2 {
+    filter: drop-shadow(8px 8px 5px var(--purple));
+}
+
+.project__card h2 {
+    color: var(--indigo);
+    font-weight: bolder;
+    font-size: 2.5rem;
+    padding-bottom: 1rem;
+}
+
+.project__card p {
+    font-size: 1.3rem;
+    line-height: 180%;
 }
 
 .scroller {
     display: flex;
     align-items: center;
     justify-content: center;
+    align-self: center;
+    justify-self: center;
     width: 100%;
-    height: 100%;
+    height: 60vh;
     overflow: hidden;
     padding: 0;
     list-style: none;
@@ -541,13 +592,14 @@ body {
 .scroller__inner {
     display: flex;
     gap: 20px;
-    height: 100%;
-    width: 100%;
+    height: 90%;
+    width: calc(200%);
+    /* Set width to accommodate the duplicated items */
     position: absolute;
     top: 0;
     left: 0;
     will-change: transform;
-    animation: scroll 50s linear infinite;
+    animation: scroll 60s linear infinite;
 }
 
 @keyframes scroll {
@@ -557,6 +609,7 @@ body {
 
     100% {
         transform: translateX(-50%);
+        /* Scroll by half the total width */
     }
 }
 
@@ -569,7 +622,8 @@ body {
 .scroller img {
     display: block;
     width: 100%;
-    height: 100%;
+    height: 95%;
+    border: 1px solid var(--azure);
     border-radius: 10px;
     object-fit: cover;
 
@@ -583,6 +637,7 @@ body {
     filter: drop-shadow(0 0 0.75rem crimson);
 }
 
+/* 
 .scroller .overlays {
     position: absolute;
     bottom: 20px;
@@ -616,80 +671,18 @@ body {
 .scroller .overlays h3 {
     font-size: 24px;
     margin-top: 10px;
-}
+} */
 
-/* game section */
-#canvas1 {
-    border: 3px solid #9747ff;
-    box-shadow: 0 0 10px 5px #9747ff;
-    width: 1000px;
-    height: 600px;
-    z-index: 10000;
-}
-
-#collisionCanvas {
-    opacity: 0;
-    position: absolute;
-    top: 50;
-    left: 50;
-    translate: (-50%, -50%);
-    width: 1000px;
-    height: 600px;
-    z-index: 9999;
-}
-
-/* Style the game buttons */
-.game-button {
-    display: block;
-    margin: 10px;
-    padding: 15px 30px;
-    font-size: 18px;
-    font-weight: bold;
-    color: #fff;
-    border: none;
-    border-radius: 12px;
-    cursor: pointer;
-    outline: none;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-/* Start Button */
-#startButton {
-    background: linear-gradient(135deg, #ff6b6b, #f06595);
-}
-
-/* Pause Button */
-#pauseButton {
-    background: linear-gradient(135deg, #ffdd00, #f8a107);
-}
-
-/* Continue Button */
-#continueButton {
-    background: linear-gradient(135deg, #00b894, #00cec9);
-}
-
-/* Hover and Focus Effects */
-.game-button:hover,
-.game-button:focus {
-    transform: scale(1.05);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
-}
-
-/* Active Button Effect */
-.game-button:active {
-    transform: scale(0.95);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
 
 .contact__section {
     backdrop-filter: blur(3px);
     -webkit-backdrop-filter: blur(3px);
     background: hsla(0, 0%, 6%, .9);
-    color: #fff;
+    color: var(--azure);
+    display: flex;
     flex-direction: column;
-    height: 90vh;
-    padding: 0 5% 0 5%;
+    max-height: 90vh;
+    padding: 0 4rem;
     text-align: start;
     z-index: 1
 }
@@ -722,22 +715,24 @@ body {
     height: auto;
     margin: 10px;
     padding: 20px 30px;
-    width: 100%
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    justify-self: center;
 }
 
 .leftBox h1 {
-    margin-bottom: 10px
+    margin-bottom: 1rem;
 }
 
 .leftBox a {
-    font-size: 24px;
+    font-size: 1.2rem;
     margin-bottom: 50px;
     padding: 10px;
     text-decoration: none
 }
 
-
-/* Center the buttons */
 #buttons {
     position: absolute;
     top: 90%;
@@ -746,8 +741,6 @@ body {
     text-align: center;
     margin-bottom: 30px;
 }
-
-
 
 #introText {
     position: absolute;
@@ -770,10 +763,9 @@ body {
     border-radius: 8px;
     box-shadow: 0 4px 30px var(--purple);
     color: #fff;
+    width: 90%;
     height: auto;
-    margin: 0;
     padding: 20px 30px;
-    width: 90%
 }
 
 .form h2 {
@@ -842,610 +834,331 @@ body {
     width: 320px
 }
 
+/* For mobile devices */
+@media only screen and (max-width: 600px) {
+    .wrapper {
+        width: 100%;
+        min-width: 100svw;
+        margin: 0;
+        padding: 0;
+    }
 
-@media screen and (max-width:1200px) {
     .navbar-brand {
-        font-size: 30px
+        font-size: 24px;
+    }
+
+    .navbar-toggler {
+        font-size: 1rem;
     }
 
     .nav-item {
-        padding-right: 35px
+        padding: 0 20px;
     }
 
     .nav-link {
-        font-size: 16px
+        font-size: 16px;
     }
 
     .hero {
-        height: auto;
-        padding: 5%;
+        height: 100%;
+        width: 100%;
+        max-height: 100%;
+        padding: 0 5%;
     }
 
-
-
-    .item1 .txt1,
-    .item1 .txt2,
-    .item1 h5 {
-        font-size: 24px
+    .hero .item1 h1 {
+        font-size: 3rem;
     }
 
-    .item1 h1 {
-        font-size: 48px
+    .hero .item1 .txt1,
+    .item1 .txt2 {
+        font-size: 1.5rem;
     }
 
-    .item1 p {
-        font-size: 16px
+    .hero .item1 p {
+        font-size: 1.2rem;
     }
 
-    .ellipse {
-        height: 200px;
-        left: 50%;
-        top: 90%;
-        transform: translate(-50%, -80%);
-        width: 200px
+    .hero .image1 {
+        height: 400px;
     }
 
-    .image1 {
-        height: 300px
+    .hero .image2 {
+        height: 400px;
     }
 
-    .image2 {
-        height: 400px
+    .hero .ellipse {
+        height: 400px;
+        aspect-ratio: 1/1;
     }
 
-    .item3 .socials {
-        font-size: 24px;
-        padding-right: 10px
-    }
-
-    .item3 .button1 {
+    .button1 {
         font-size: 18px;
-        height: 50px;
-        padding: 0 20px
-    }
-
-    .about__section,
-    .project__section,
-    .contact__section {
-        height: auto;
-        padding: 5%;
-    }
-
-    .about__section .heading,
-    .project__section .heading,
-    .contact__section .heading {
-        font-size: 40px;
-        margin: 50px 0
-    }
-
-    .about__section .about,
-    .about__section .about2,
-    .project__section .about,
-    .project__section .about2,
-    .contact__section .about,
-    .contact__section .about2 {
-        font-size: 30px
-    }
-
-    .about__section .square,
-    .project__section .square {
-        height: auto;
-        margin: 20px;
-        width: 100%
-    }
-
-    .about__section .boxImg,
-    .project__section .boxImg {
-        font-size: 40px;
-        margin-bottom: 20px
-    }
-
-    .about__section .boxTxt,
-    .project__section .boxTxt {
-        font-size: 24px
-    }
-
-    .project__section img {
-        height: auto;
-    }
-
-    .contact__section .form,
-    .contact__section .leftBox {
-        padding: 10px
-    }
-
-    .form h2 {
-        font-size: 24px;
-        width: 140px
-    }
-
-    .form input {
-        font-size: 16px
-    }
-
-    .form button {
-        padding: 10px 20px
-    }
-
-    .form div {
-        padding: 10px;
-        width: 260px
-    }
-}
-
-
-@media screen and (max-width:979px) {
-    .navbar-brand {
-        font-size: 30px
-    }
-
-    .nav-item {
-        padding-right: 35px
-    }
-
-    .nav-link {
-        font-size: 16px
-    }
-
-    .hero {
-        height: auto;
-        padding: 5%;
-    }
-
-    .item1 .txt1,
-    .item1 .txt2,
-    .item1 h5 {
-        font-size: 24px
-    }
-
-    .item1 h1 {
-        font-size: 48px
-    }
-
-    .item1 p {
-        font-size: 16px
-    }
-
-    .ellipse {
-        height: 200px;
-        left: 50%;
-        top: 90%;
-        transform: translate(-50%, -80%);
-        width: 200px
-    }
-
-    .image1 {
-        height: 300px
-    }
-
-    .image2 {
-        height: 400px
-    }
-
-    .item3 .socials {
-        font-size: 24px;
-        padding-right: 10px
-    }
-
-    .item3 .button1 {
-        font-size: 18px;
-        height: 50px;
-        padding: 0 20px
-    }
-
-    .about__section,
-    .contact__section {
-        height: auto;
-        padding: 5%;
-    }
-
-    .project__section {
-        height: 100vh;
-    }
-
-    .project__section .row {
-        gap: 5%;
-    }
-
-    .project__section .project__card {
-        height: min-content;
-    }
-
-    .project__section .scroller,
-    .scroller__inner {
-        height: 100vh;
-    }
-
-    .about__section .heading,
-    .project__section .heading,
-    .contact__section .heading {
-        font-size: 40px;
-        margin: 50px 0
-    }
-
-    .about__section .about,
-    .about__section .about2,
-    .project__section .about,
-    .project__section .about2,
-    .contact__section .about,
-    .contact__section .about2 {
-        font-size: 30px
-    }
-
-    .about__section .square,
-    .project__section .square {
-        height: auto;
-        margin: 20px;
-        width: 100%
-    }
-
-    .about__section .boxImg,
-    .project__section .boxImg {
-        font-size: 40px;
-        margin-bottom: 20px
-    }
-
-    .about__section .boxTxt,
-    .project__section .boxTxt {
-        font-size: 24px
-    }
-
-    .project__section img {
-        height: auto;
-    }
-
-    .contact__section .form,
-    .contact__section .leftBox {
-        padding: 10px
-    }
-
-    .form h2 {
-        font-size: 24px;
-        width: 140px
-    }
-
-    .form input {
-        font-size: 16px
-    }
-
-    .form button {
-        padding: 10px 20px
-    }
-
-    .form div {
-        padding: 10px;
-        width: 260px
-    }
-}
-
-@media screen and (max-width:767px) {
-    .navbar-brand {
-        font-size: 30px
-    }
-
-    .nav-item {
-        padding-right: 20px
-    }
-
-
-    .nav-link {
-        font-size: 16px
-    }
-
-    .hero {
-        height: auto;
-        padding: 5%;
-    }
-
-    .item1 .txt1,
-    .item1 .txt2,
-    .item1 h5 {
-        font-size: 24px
-    }
-
-    .item1 h1 {
-        font-size: 48px
-    }
-
-    .item1 p {
-        font-size: 16px
-    }
-
-    .ellipse {
-        height: 200px;
-        left: 50%;
-        top: 90%;
-        transform: translate(-50%, -80%);
-        width: 200px
-    }
-
-    .image1 {
-        height: 300px
-    }
-
-    .image2 {
-        height: 400px
-    }
-
-    .item3 .socials {
-        font-size: 24px;
-        padding-right: 10px
-    }
-
-    .item3 .button1 {
-        font-size: 18px;
-        height: 50px;
-        padding: 0 20px
-    }
-
-    .about__section,
-    .contact__section {
-        height: auto;
-        padding: 5%;
-    }
-
-    .project__section {
-        height: 100vh;
-    }
-
-    .project__section .row {
-        gap: 5%;
-    }
-
-    .project__section .project__card {
-        height: min-content;
-    }
-
-    .project__section .scroller,
-    .scroller__inner {
-        height: 100vh;
-    }
-
-    .about__section .heading,
-    .project__section .heading,
-    .contact__section .heading {
-        font-size: 40px;
-        margin: 50px 0
-    }
-
-    .about__section .about,
-    .about__section .about2,
-    .project__section .about,
-    .project__section .about2,
-    .contact__section .about,
-    .contact__section .about2 {
-        font-size: 30px
-    }
-
-    .about__section .square,
-    .project__section .square {
-        height: auto;
-        margin: 20px;
-        width: 80%;
-    }
-
-    .about__section .boxImg,
-    .project__section .boxImg {
-        font-size: 40px;
-        margin-bottom: 20px
-    }
-
-    .about__section .boxTxt,
-    .project__section .boxTxt {
-        font-size: 24px
-    }
+        padding: 0 30px;
+        z-index: 9999;
 
-    .project__section img {
-        height: auto;
     }
 
-    #games-section {
+    .section__cover {
         display: none;
     }
 
-    .contact__section .form,
-    .contact__section .leftBox {
-        padding: 10px
+    .about__section {
+        height: 100%;
+        width: 100%;
     }
 
-    .form h2 {
-        font-size: 24px;
-        width: 140px
-    }
-
-    .form input {
-        font-size: 16px
-    }
-
-    .form button {
-        padding: 10px 20px
-    }
-
-    .form div {
-        padding: 10px;
-        width: 260px
-    }
-}
-
-@media screen and (max-width:480px) {
-    .navbar-brand {
-        font-size: 30px
-    }
-
-    .nav-item {
-        padding-right: 20px
-    }
-
-    .nav-link {
-        font-size: 16px
-    }
-
-    .hero {
-        height: auto;
-        padding: 1rem
-    }
-
-    .item1 .txt1,
-    .item1 .txt2,
-    .item1 h5 {
-        font-size: 24px
-    }
-
-    .item1 h1 {
-        font-size: 48px
-    }
-
-    .item1 p {
-        font-size: 16px
-    }
-
-    .ellipse {
-        height: 200px;
-        left: 50%;
-        top: 90%;
-        transform: translate(-50%, -80%);
-        width: 200px
-    }
-
-    .image1 {
-        height: 300px
-    }
-
-    .image2 {
-        height: 400px
-    }
-
-    .item3 .socials {
-        font-size: 24px;
-        padding-right: 10px
-    }
-
-    .item3 .button1 {
-        font-size: 18px;
-        height: 50px;
-        padding: 0 20px
-    }
-
-    .about__section,
-    .project__section,
-    .contact__section {
-        height: auto;
-        padding: 20px 0
-    }
-
-    .about__section .heading,
-    .project__section .heading,
-    .contact__section .heading {
-        font-size: 40px;
-        margin: 50px 0
-    }
-
-    .about__section .about,
-    .about__section .about2,
-    .project__section .about,
-    .project__section .about2,
-    .contact__section .about,
-    .contact__section .about2 {
-        font-size: 30px
-    }
-
-    .about__section .square,
-    .project__section .square {
-        height: auto;
-        margin: 20px;
-        width: 80%;
-    }
-
-    .about__section .boxImg,
-    .project__section .boxImg {
-        font-size: 40px;
-        margin-bottom: 20px
-    }
-
-    .about__section .boxTxt,
-    .project__section .boxTxt {
-        font-size: 24px
-    }
-
-    .project__section img {
-        height: auto;
-    }
-
-    #games-section {
-        display: none;
-    }
-
-    .contact__section .form,
-    .contact__section .leftBox {
-        padding: 10px
-    }
-
-    .form h2 {
-        font-size: 24px;
-        width: 140px
-    }
-
-    .form input {
-        font-size: 16px
-    }
-
-    .form button {
-        padding: 10px 20px
-    }
-
-    .form div {
-        padding: 10px;
-        width: 260px
-    }
-
-    .container {
-        padding: 0
-    }
-
-    .about__section .grid-container,
-    .project__section .grid-container {
+    .showcase-container {
+        height: 100%;
         grid-template-columns: 1fr;
-        padding: 0
+        grid-template-rows: auto;
+        grid-template-areas:
+            "intro"
+            "education"
+            "experience"
+            "skills";
+        padding: 1rem;
+        margin: 0;
+        height: auto;
     }
 
-    .about__section .square,
-    .project__section .square {
-        max-width: none;
-        width: 80%;
-        max-height: 300px;
+    .showcase-container h2 {
+        font-size: 2rem;
+        margin-bottom: 1.5rem;
     }
 
-    .contact__section .form,
+    .intro,
+    .education,
+    .skills,
+    .experience {
+        width: 100%;
+        font-size: 1rem;
+    }
+
+    .education li {
+        font-size: .875rem;
+    }
+
+    .showcase-container .logo-container {
+        overflow: hidden;
+        padding: 3rem 0;
+    }
+
+
+    .showcase-container .logo-slider {
+        white-space: wrap;
+    }
+
+    .showcase-container .logos {
+        height: 40px;
+        aspect-ratio: 1/1;
+        margin-right: 2.5rem;
+    }
+
+
+
+    .project__section {
+        height: 100%;
+        width: 100%;
+        align-items: center;
+        padding: 0;
+    }
+
+    .project__section project__card {
+        width: 100%;
+    }
+
+    .project__section .scroller {
+        height: 50vh;
+    }
+
+    .project__section .scroller-inner {
+        height: 50vh;
+    }
+
+    .project__section .scroller img {
+        height: 100%;
+    }
+
+    .project__section h2 {
+        font-size: 2rem;
+    }
+
+    .project__section p {
+        font-size: 1rem;
+    }
+
+    .button1 {
+        font-size: 1rem;
+        height: 40px;
+        width: 180px;
+    }
+
+    .contact__section {
+        height: 100%;
+        max-height: 100%;
+        padding: 0;
+        margin: 0;
+        justify-content: center;
+        align-content: center;
+    }
+
+    .contact__section a {
+        margin-bottom: 1rem;
+        padding: 0;
+    }
+
     .contact__section .leftBox {
-        width: 100%
+        font-size: 1.2rem;
+        padding: 0 1rem;
     }
 
-    .about__section .square,
-    .project__section .square {
-        margin: 10px 0 auto;
-        width: 80%;
+    .contact__section .leftBox h2 {
+        font-size: 2rem;
+        padding-bottom: 1rem;
     }
 
-    .item3 .button1 {
-        margin: 3rem auto;
-        text-align: center;
-        width: 80%;
+    .contact__section .form {
+        width: 100%;
+        aspect-ratio: 2/1;
     }
 
-    .contact__section .form input {
-        font-size: 4vw
+    .contact__section .heading {
+        display: none;
+    }
+}
+
+/* For tablets */
+@media (min-width: 601px) and (max-width: 1024px) {
+    .navbar-brand {
+        font-size: 3rem;
     }
 
-    .form button {
-        margin: 20px auto;
-        width: 70%
+    .navbar-toggler {
+        font-size: 1.5rem;
     }
 
-    .image2 {
-        display: none
+    .nav-item {
+        padding-right: 2rem;
     }
 
-    .about__section .boxImg {
-        font-size: 50px
+    .nav-link {
+        font-size: 1.5rem;
+    }
+
+    .hero {
+        height: 100%;
+        max-height: 100%;
+        padding: 0 5%;
+    }
+
+    .hero .item1 h1 {
+        font-size: 65px;
+    }
+
+    .hero .item1 .txt1,
+    .item1 .txt2 {
+        font-size: 32px;
+    }
+
+    .hero .item1 p {
+        font-size: 18px;
+    }
+
+    .hero .image1 {
+        height: 450px;
+    }
+
+    .hero .image2 {
+        height: 600px;
+    }
+
+    .section__cover {
+        display: none;
+    }
+
+    .about__section {
+        height: 100%;
+    }
+
+    .button1 {
+        font-size: 20px;
+        padding: 0 40px;
+    }
+
+    .about__section,
+    .project__section,
+    .contact__section,
+    .section__cover {
+        height: 100%;
+    }
+
+
+
+    .showcase-container {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        grid-template-areas:
+            "intro skills"
+            "education experience"
+            padding: 2rem;
+        margin: 0 3rem;
+        font-size: 0.9rem;
+        height: auto;
+        /* Allow container height to adjust based on content */
+    }
+
+    .showcase-container h2 {
+        font-size: 2.5rem;
+        margin-bottom: 1.2rem;
+    }
+
+    .intro,
+    .education,
+    .skills,
+    .experience {
+        width: 100%;
+        align-items: start;
+        text-align: start;
+        font-size: 1.2rem;
+    }
+
+    .experience {
+        font-size: 1.5rem;
+    }
+
+    .ellipse {
+        height: 250px;
+    }
+
+    .contact__section {
+        max-height: 100%;
+        width: 100%;
+        margin: 0;
+    }
+
+
+    .contact__section .leftBox {
+        width: 100%;
+    }
+
+    .contact__section .leftBox h2 {
+        font-size: 3rem;
+        width: 100%;
+    }
+
+    .contact__section .leftBox p {
+        font-size: 1.5rem;
+        padding-bottom: 0;
+    }
+
+    .contact__section .leftBox a {
+        font-size: 1.3rem;
+        margin-bottom: 0;
+    }
+
+    .contact__section .form {
+        width: 100%;
+        margin-bottom: 3rem;
     }
 }

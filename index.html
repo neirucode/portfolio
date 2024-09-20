@@ -19,252 +19,319 @@
 
 <body>
     <div class="wrapper">
-        <div class="bg">
-            <nav class="navbar navbar-expand-lg bg-black sticky-top">
-                <div class="container-fluid">
-                    <a class="navbar-brand text-light" href="#home-section">Portfolio</a>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse" id="navbarNav">
-                        <ul class="navbar-nav text-light">
-                            <li class="nav-item">
-                                <a class="nav-link" aria-current="page" href="#home-section">Home</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#about-section">About</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#project-section">Projects</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#contact-section">Contact</a>
-                            </li>
-                            <li class="nav-item">
-                                <label class="nav-link m-0" for="toggle-dark-mode">
-                                    <input type="checkbox" id="toggle-dark-mode">
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </nav>
-
-            <div class="hero" id="home-section">
-                <br>
-                <div class="row">
-                    <div class="col-lg-6 item1 mt-2">
-                        <h5>Hello It's me</h5>
-                        <h1>Neil Fernando</h1>
-                        <span class="txt1">And I'm a </span>
-                        <span class="txt2" id="typewriter"></span>
-                        <p id="reveal-text" class="txt3">"Experienced Front-end developer fluent in HTML, CSS, and
-                            JavaScript, with hands-on
-                            experience in
-                            React.js, Bootstrap & Tailwind CSS Dedicated to crafting engaging user experiences and
-                            committed to
-                            continuous learning in web development"</p>
-                    </div>
-                    <div class="col-lg-6 item2">
-                        <div class="ellipse"></div>
-                        <img class="image1" src="images/neil port.png" alt="Example Image">
-                        <img class="image2" src="images/portf bg.png" alt="Example Image">
-                    </div>
-                    <div class="col-lg-12 mt-3 item3">
-                        <a class="socials" href="https://www.linkedin.com/in/jerry-neil-f-9673752b6/"><i
-                                class="bi bi-linkedin"></i></a>
-                        <a class="socials" href="https://www.instagram.com/jerryneil1201/"><i
-                                class="bi bi-instagram"></i></a>
-                        <a class="socials" href="https://www.facebook.com/Jerry.Neil.Fernando.1201"><i
-                                class="bi bi-facebook"></i></a>
-                        <div><button class="button1" id="download">Download CV</button></div>
-
-                    </div>
+        <!-- navbar -->
+        <nav class="navbar navbar-expand-lg bg-black sticky-top">
+            <div class="container-fluid">
+                <a class="navbar-brand text-light" href="#home-section">Portfolio</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav text-light">
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="#home-section">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#about-section">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#project-section">Projects</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#contact-section">Contact</a>
+                        </li>
+                        <li class="nav-item">
+                            <label class="nav-link m-0" for="toggle-dark-mode">
+                                <input type="checkbox" id="toggle-dark-mode">
+                        </li>
+                    </ul>
                 </div>
             </div>
-            <!-- about -->
-            <div class="about__section" id="about-section" href="#about-section">
-                <div class="about__background reveal-section">
-                    <div class="heading">
-                        <span class="about">About</span>
-                        <span class="about2">Me</span>
-                    </div>
-                    <div class="row d-flex justify-content-center align-items-center ">
-                        <div class="col-md-4 d-flex justify-content-center">
-                            <div class="square">
-                                <a href="https://github.com/neirucode">
-                                    <div class="boxContent">
-                                        <div class="boxImg"><i class="bi bi-github"></i></div>
-                                        <div class="boxTxt">Projects</div>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="col-md-4 d-flex justify-content-center">
-                            <div class="square">
-                                <a
-                                    href="https://www.figma.com/files/team/1289900501524023588/Jerry-Neil-F.'s-team?fuid=1289900499748453369">
-                                    <div class="boxContent">
-                                        <div class="boxImg"><i class="bi bi-brush-fill"></i></div>
-                                        <div class="boxTxt">UI/UX</div>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="col-md-4 d-flex justify-content-center">
-                            <div class="square">
-                                <a href="#">
-                                    <div class="boxContent">
-                                        <div class="boxImg"><i class="bi bi-newspaper"></i></div>
-                                        <div class="boxTxt">Blog</div>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- project__section -->
-            <div class="project__section" id="project-section" href="#project-section">
-                <div class="row">
-                    <div class="col-lg-4">
-                        <div class="project__card">
-                            <h1>My Projects</h1>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                Debitis dolor accusamus eveniet ratione perspiciatis quo recusandae omnis
-                                accusantium,
-                                harum amet!</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-8">
-                        <div class="scroller">
-                            <ul class="scroller__inner">
-                                <li>
-                                    <a href="https://github.com/neirucode/dentofarm">
-                                        <img src="images/dento showcase.png" alt="">
-                                    </a>
-                                    <!-- <div class="overlays">
-                                            <p>Dentofarm Resort</p>
-                                            <h3>This was my recent project</h3>
-                                        </div> -->
-                                </li>
-                                <li>
-                                    <a href="https://neirucode.github.io/Blog-Website/">
-                                        <img src="images/vernile showcase.png" alt="">
-                                    </a>
-                                    <!-- <div class="overlays">
-                                            <p>Vernile</p>
-                                            <h3>${photo.alt_description || "No title available"}</h3>
-                                        </div> -->
-                                </li>
-                                <li>
-                                    <a href="https://neirucode.github.io/HotelWeb/">
-                                        <img src="images/hotel showcase.png" alt="">
-                                    </a>
-                                    <!-- <div class="overlays">
-                                            <p>Hotel Booking</p>
-                                            <h3>${photo.alt_description || "No title available"}</h3>
-                                        </div> -->
-                                </li>
-                                <li>
-                                    <a href="https://github.com/neirucode/dentofarm">
-                                        <img src="images/dento showcase.png" alt="">
-                                    </a>
-                                    <!-- <div class="overlays">
-                                            <p>Dentofarm Resort</p>
-                                            <h3>This was my recent project</h3>
-                                        </div> -->
-                                </li>
-                                <li>
-                                    <a href="https://neirucode.github.io/Blog-Website/">
-                                        <img src="images/vernile showcase.png" alt="">
-                                    </a>
-                                    <!-- <div class="overlays">
-                                            <p>Vernile</p>
-                                            <h3>${photo.alt_description || "No title available"}</h3>
-                                        </div> -->
-                                </li>
-                                <li>
-                                    <a href="https://neirucode.github.io/HotelWeb/">
-                                        <img src="images/hotel showcase.png" alt="">
-                                    </a>
-                                    <!-- <div class="overlays">
-                                            <p>Hotel Booking</p>
-                                            <h3>${photo.alt_description || "No title available"}</h3>
-                                        </div> -->
-                                </li>
+        </nav>
 
-                            </ul>
-                        </div>
-                    </div>
-
-
+        <div class="hero" id="home-section">
+            <br>
+            <div class="row">
+                <div class="col-lg-6 item1 mt-2">
+                    <h5>Hello It's me</h5>
+                    <h1>Neil Fernando</h1>
+                    <span class="txt1">And I'm a </span>
+                    <span class="txt2" id="typewriter"></span>
+                    <p id="reveal-text" class="txt3">"This portfolio has been developed to showcase my
+                        proficiency in front-end development. Although it utilizes Bootstrap, I deliberately chose not
+                        to implement React in order to emphasize my fluency in HTML, CSS, and JavaScript, thereby
+                        demonstrating a solid foundation in essential front-end technologies"</p>
                 </div>
-            </div>
+                <div class="col-lg-6 item2">
+                    <div class="ellipse"></div>
+                    <img class="image1" src="images/neil port.png" alt="Example Image">
+                    <img class="image2" src="images/portf bg.png" alt="Example Image">
+                </div>
+                <div class="col-lg-12 mt-3 item3">
+                    <a class="socials" href="https://www.linkedin.com/in/jerry-neil-f-9673752b6/"><i
+                            class="bi bi-linkedin"></i></a>
+                    <a class="socials" href="https://www.instagram.com/jerryneil1201/"><i
+                            class="bi bi-instagram"></i></a>
+                    <a class="socials" href="https://www.facebook.com/Jerry.Neil.Fernando.1201"><i
+                            class="bi bi-facebook"></i></a>
+                    <div><button class="button1" id="download">Download CV</button></div>
+                    <hr class="divider">
 
-            <!-- Go Play Section -->
-            <!-- <div class="project__section" id="games-section">
-                <div class="heading m-3">
-                    <span class="about">mini</span>
-                    <span class="about2">Game <i class="bi bi-joystick"></i></span>
-                </div>
-                <div>
-                    <canvas id="collisionCanvas"></canvas>
-                    <canvas id="canvas1"></canvas>
-                    <div id="introText">Press Start Button. Click as many alienbats as you can!</div>
-                    <div id="buttons">
-                        <button id="startButton" class="game-button">Start</button>
-                        <button id="pauseButton" class="game-button" style="display:none;">Pause</button>
-                        <button id="continueButton" class="game-button" style="display:none;">Continue</button>
-                    </div>
-                </div>
-                <hr class="custom-hr">
-            </div> -->
-            <!-- -->
-            <div class="contact__section" id="contact-section" href="#contact-section">
-                <div class="contactBg">
-                    <div class="heading">
-                        <span class="about">Contact</span>
-                        <span class="about2">Me</span>
-                    </div>
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <div class="leftBox">
-                                <h1>Got An Idea In Mind? </h1>
-                                <p>Have some big idea or brand to develop and need help?<br> Then out we'd love to
-                                    hear
-                                    about your project and provide help</p>
-                                <h1>Email</h1>
-                                <a
-                                    href="https://mail.google.com/mail/u/0/#inbox?compose=new">jerryfernando01@gmail.com</a>
-                                <h1>Socials</h1>
-                                <a href="https://github.com/">Github</a>
-                            </div>
-                        </div>
-                        <div class="col-lg-6">
-                            <form class="form" onsubmit="sendEmail(); reset(); return false">
-                                <h2>Message Me:</h2>
-                                <p><input type="text" id="name" placeholder="Write your name here.." required></p>
-                                <p><input type="email" id="email" placeholder="Let us know how to contact you back.."
-                                        required></p>
-                                <p><input id="message" placeholder="What would you like to tell us.." required></input>
-                                </p>
-                                <button type="submit">Send Message</button>
-                            </form>
-                        </div>
-                    </div><br><br><br>
-                    <button id="scrollToTopBtn" title="Go to top"><i class="bi bi-chevron-up"></i></button>
                 </div>
             </div>
 
         </div>
+        <div class="section__cover" id="typewriter">
+            <span class="about">About</span>
+            <span class="about2">Me</span>
+        </div>
+
+        <!-- about -->
+        <div class="about__section" id="about-section" href="#about-section">
+            <!-- Introduction Section -->
+            <div class="showcase-container">
+                <div class="intro">
+                    <h2>Hello there!</h2>
+                    <p>I’m a Bachelor of Science in Information Technology fresh-grad major in Web Application
+                        Development, an experienced Front-end developer fluent in HTML, CSS,
+                        and JavaScript, with hands-on experience in React.js, Bootstrap & Tailwind CSS. I'm
+                        dedicated on crafting engaging user experiences and committed to continuous learning
+                        in UI/UX design and Web development.</p>
+                </div>
+                <div class="education">
+                    <h2>My Education</h2>
+                    <ul>
+
+                    </ul>
+                    <li>
+                        <strong>AMA Computer College| A.Y. 2019-2024</strong>
+                        <p><i>Bachelor of Science in Information Technology</i></p>
+                    </li>
+                    <li>
+                        <strong>Phinma Araullo University | S.Y. 2016-2018</strong>
+                        <p><i>Science Technology Engineering Mathematics</i></p>
+                    </li>
+                    <li>
+                        <strong>M. del Rosario Mem. Nat'l H.S.| S.Y. 2012-2016</strong>
+                        <p><i>Secondary Education</i></p>
+                    </li>
+                    <li>
+                        <strong>M. del Rosario Mem. Elem. School | S.Y. 2006-2012</strong>
+                        <p><i>Primary Education</i></p>
+                    </li>
+                </div>
+                <div class="skills">
+
+                    <h2>Skills</h2>
+                    <h4>Web Development</h4>
+                    <div class="logo-container">
+                        <div class="logo-slider">
+                            <img class="logos" src="images/icons/html-5-svgrepo-com.svg" alt="HTML logo">
+                            <img class="logos" src="images/icons/css-3-svgrepo-com.svg" alt="HTML logo">
+                            <img class="logos" src="images/icons/javascript-svgrepo-com.svg" alt="HTML logo">
+                            <img class="logos" src="images/icons/bootstrap-svgrepo-com.svg" alt="HTML logo">
+                            <img class="logos" src="images/icons/tailwind-svgrepo-com.svg" alt="HTML logo">
+                            <img class="logos" src="images/icons/react-svgrepo-com.svg" alt="HTML logo">
+                            <img class="logos" src="images/icons/php-svgrepo-com.svg" alt="HTML logo">
+                            <img class="logos" src="images/icons/mysql-svgrepo-com.svg" alt="HTML logo">
+                            <img class="logos" src="images/icons/git-svgrepo-com.svg" alt="HTML logo">
+                        </div>
+                    </div>
+                    <h4>Graphic Design</h4>
+                    <div class="logo-container">
+                        <div class="logo-slider">
+                            <img class="logos" src="images/icons/figma-svgrepo-com.svg" alt="">
+                            <img class="logos" src="images/icons/adobe-xd-svgrepo-com.svg" alt="">
+                            <img class="logos" src="images/icons/photoshop-svgrepo-com.svg" alt="">
+                        </div>
+                    </div>
+                    <h4>Video Editing</h4>
+                    <img class="logos" src="images/icons/icons8-davinci-resolve.svg" alt="">
+                    <img class="logos" style="background-color:white;border-radius: 8px;"
+                        src="images/icons/capcut-svgrepo-com (1).svg" alt="">
+
+                </div>
+                <div class="experience">
+                    <h2>Experience</h2>
+                    <ul>
+                        <li>
+                            <p>Dentofarm Resort
+                                Frontend Developer (Capstone Proj.)
+                            </p>
+                        </li>
+                        <li>
+                            <p>Dept. of Env. & Natural Resources
+                                IT Staff (Intern)
+                            </p>
+                        </li>
+                        <li>
+                            <p>Freelancing
+                            </p>
+                        </li>
+                    </ul>
+
+
+                </div>
+            </div>
+
+        </div>
+
+
+        <div class="section__cover">
+            <span class="about">My</span>
+            <span class="about2">Projects</span>
+        </div>
+
+        <!-- project__section -->
+        <div class="project__section" id="project-section" href="#project-section">
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="project__card">
+                        <h2>Personal Projects</h2>
+                        <p>Where I've explored new ideas, experimented
+                            with web technologies, and brought my creativity to life. Each project reflects my
+                            growth as a front-end developer, blending design and functionality with a focus on user
+                            experience. From concept to completion, these projects demonstrate my passion for
+                            solving problems, learning new skills, and continuously improving my craft.</p>
+                        <button class="button1" id="download">View All</button>
+                    </div>
+                </div>
+                <div class="col-lg-8">
+                    <div class="scroller">
+                        <ul class="scroller__inner">
+                            <li>
+                                <a href="https://github.com/neirucode/dentofarm">
+                                    <img src="images/personalProjects/dento showcase.png" alt="">
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://neirucode.github.io/Blog-Website/">
+                                    <img src="images/personalProjects/vernile showcase.png" alt="">
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://neirucode.github.io/HotelWeb/">
+                                    <img src="images/personalProjects/hotel showcase.png" alt="">
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://github.com/neirucode/dentofarm">
+                                    <img src="images/personalProjects/dento showcase.png" alt="">
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://neirucode.github.io/Blog-Website/">
+                                    <img src="images/personalProjects/vernile showcase.png" alt="">
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://neirucode.github.io/HotelWeb/">
+                                    <img src="images/personalProjects/hotel showcase.png" alt="">
+                                </a>
+                            </li>
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-lg-8">
+                    <div class="scroller">
+                        <ul class="scroller__inner">
+                            <!-- <li>
+                                    <a href="https://github.com/neirucode/dentofarm">
+                                        <img src="images/frontendmentor/blog-preview-card-desktop.png" alt="">
+                                    </a>
+                                </li> -->
+                            <li>
+                                <a href="https://github.com/neirucode/dentofarm">
+                                    <img src="images/frontendmentor/blog-preview-card-mobile.png" alt="">
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://neirucode.github.io/Blog-Website/">
+                                    <img src="images/frontendmentor/product-preview-card-desktop.png" alt="">
+                                </a>
+                            </li>
+                            <!-- <li>
+                                    <a href="https://neirucode.github.io/HotelWeb/">
+                                        <img src="images/frontendmentor/qr-code-component-solution-desktop.png" alt="">
+                                    </a>
+                                </li> -->
+                            <li>
+                                <a href="https://neirucode.github.io/HotelWeb/">
+                                    <img src="images/frontendmentor/qr-code-component-solution-mobile.png" alt="">
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://github.com/neirucode/dentofarm">
+                                    <img src="images/frontendmentor/recipe-page-desktop.png" alt="">
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://neirucode.github.io/Blog-Website/">
+                                    <img src="images/frontendmentor/social-links-profile-desktop.png" alt="">
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="project__card d-flex flex-shrink">
+                        <h2>Frontend Mentor Projects</h2>
+                        <p> Where I honed my skills through hands-on, project-based learning. Each project
+                            challenged
+                            me to build real-world layouts and interactive components, helping me master best
+                            practices in responsive design, HTML, CSS, and JavaScript. These projects showcase my
+                            ability to translate design files into fully functional websites while continuously
+                            refining my front-end development expertise.</p>
+                        <button class="button1" id="download">View All</button>
+                    </div>
+                </div>
+                <hr class="divider">
+            </div>
+        </div>
+        <!-- contact section -->
+        <div class="contact__section" id="contact-section" href="#contact-section">
+            <div class="heading">
+                <span class="about">Contact</span>
+                <span class="about2">Me</span>
+            </div>
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="leftBox">
+                        <h2>Got An Idea In Mind? </h2>
+                        <p>Have some big idea or brand to develop and need help?<br> Then out we'd love to
+                            hear
+                            about your project and provide help</p>
+                        <p>Email</p>
+                        <a href="https://mail.google.com/mail/u/0/#inbox?compose=new">jerryfernando01@gmail.com</a>
+                        <p>Socials</p>
+                        <a href="https://github.com/">Github</a>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <form class="form" onsubmit="sendEmail(); reset(); return false">
+                        <h2>Message Me:</h2>
+                        <p><input type="text" id="name" placeholder="Write your name here.." required></p>
+                        <p><input type="email" id="email" placeholder="Let us know how to contact you back.." required>
+                        </p>
+                        <p><input id="message" placeholder="What would you like to tell us.." required></input>
+                        </p>
+                        <button type="submit">Send Message</button>
+                    </form>
+                </div>
+            </div>
+            <button id="scrollToTopBtn" title="Go to top"><i class="bi bi-chevron-up"></i></button>
+        </div>
     </div>
+
     <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <script src="scripts/point & shoot.js"></script>
     <script src="scripts/script.js"></script>
 </body>
 

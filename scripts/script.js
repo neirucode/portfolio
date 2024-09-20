@@ -152,85 +152,62 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 });
-// reveal section
-document.addEventListener('DOMContentLoaded', function () {
-    const revealSection = document.querySelector(".reveal-section");
+//scroller
+const scrollerInner = document.querySelector('.scroller__inner');
+const items = [...scrollerInner.children]; // Store original items
 
-    function revealOnScroll() {
-        const sectionTop = revealSection.getBoundingClientRect().top;
-        const sectionVisible = 150;
-
-        if (sectionTop < window.innerHeight - sectionVisible) {
-            revealSection.classList.add("reveal");
-        } else {
-            revealSection.classList.remove("reveal");
-        }
-    }
-
-    window.addEventListener("scroll", revealOnScroll);
+// Clone items to create seamless looping
+items.forEach(item => {
+    const clone = item.cloneNode(true);
+    scrollerInner.appendChild(clone);
 });
-// Get the button
-let scrollToTopBtn = document.getElementById("scrollToTopBtn");
 
-// When the user scrolls down 20px from the top of the document, show the button
-window.onscroll = function () { scrollFunction() };
+const webDevSkills = [
+    'images/icons/html-5-svgrepo-com.svg',
+    'images/icons/css-3-svgrepo-com.svg',
+    'images/icons/javascript-svgrepo-com.svg',
+    'images/icons/bootstrap-svgrepo-com.svg',
+    'images/icons/tailwind-svgrepo-com.svg',
+    'images/icons/react-svgrepo-com.svg',
+    'images/icons/php-svgrepo-com.svg',
+    'images/icons/mysql-svgrepo-com.svg',
+    'images/icons/git-svgrepo-com.svg'
+];
 
-function scrollFunction() {
-    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-        scrollToTopBtn.style.display = "block";
-    } else {
-        scrollToTopBtn.style.display = "none";
-    }
+const graphicDesignSkills = [
+    'images/icons/figma-svgrepo-com.svg',
+    'images/icons/adobe-xd-svgrepo-com.svg',
+    'images/icons/photoshop-svgrepo-com.svg',
+    'images/icons/figma-svgrepo-com.svg',
+    'images/icons/adobe-xd-svgrepo-com.svg',
+    'images/icons/photoshop-svgrepo-com.svg',
+    'images/icons/figma-svgrepo-com.svg',
+    'images/icons/adobe-xd-svgrepo-com.svg',
+    'images/icons/photoshop-svgrepo-com.svg',
+    'images/icons/figma-svgrepo-com.svg',
+    'images/icons/adobe-xd-svgrepo-com.svg',
+    'images/icons/photoshop-svgrepo-com.svg'
+];
+
+// Function to generate the logo slider
+function createLogoSlider(skillArray, containerId) {
+    const container = document.getElementById(containerId);
+    const slider = document.createElement('div');
+    slider.classList.add('logo-slider');
+
+    skillArray.forEach(logoSrc => {
+        const img = document.createElement('img');
+        img.classList.add('logos');
+        img.src = logoSrc;
+        img.alt = 'Skill logo';
+        slider.appendChild(img);
+    });
+
+    // Append the slider twice to create the looping effect
+    container.appendChild(slider.cloneNode(true));
+    container.appendChild(slider);
 }
 
-// When the user clicks on the button, scroll to the top of the document
-scrollToTopBtn.addEventListener("click", function () {
-    document.body.scrollTop = 0;
-    document.documentElement.scrollTop = 0;
-});
-
-var swiper = new Swiper(".mySwiper", {
-    spaceBetween: 10,
-    slidesPerView: 4,
-    freeMode: true,
-    watchSlidesProgress: true,
-});
-var swiper2 = new Swiper(".mySwiper2", {
-    spaceBetween: 10,
-    navigation: {
-        nextEl: ".swiper-button-next",
-        prevEl: ".swiper-button-prev",
-    },
-    thumbs: {
-        swiper: swiper,
-    },
-});
-
-
-// function loadFeaturedBlogs(photos) {
-//     const shuffledPhotos = photos.sort(() => 0.5 - Math.random()).slice(0, numImages);
-
-//     featuredBlogsContainer.innerHTML = ''; // Clear previous content
-
-//     shuffledPhotos.forEach(photo => {
-//         const listItem = document.createElement('li');
-//         listItem.innerHTML = `
-//         <img src="${photo.urls.small}" alt="${photo.alt_description}">
-//         <div class="overlays">
-//             <p>Features</p>
-//             <h3>${photo.alt_description || "No title available"}</h3>
-//         </div>`;
-//         featuredBlogsContainer.appendChild(listItem);
-//     });
-// }
-
-
-// let rows = 5;
-
-// for (let i = 1; i <= rows; i++) {
-//     let pattern = "";
-//     for (let j = 1; j <= rows; i++) {
-//         pattern += "*";
-//     }
-//     console.log(pattern);
-// }
+// Generate logo sliders for both sections
+createLogoSlider(webDevSkills, 'webDevSkills');
+createLogoSlider(graphicDesignSkills, 'graphicDesignSkills');
