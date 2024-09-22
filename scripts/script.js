@@ -1,12 +1,3 @@
-// Smooth Scroll
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-            behavior: 'smooth'
-        });
-    });
-});
 // email api
 (function () {
     emailjs.init("v48FaCKwRG2ATZx72");
@@ -63,37 +54,6 @@ function type() {
 }
 
 type();
-// reveal on scroll <p>
-document.addEventListener("load", () => {
-    const typewriter = document.getElementById('reveal-text');
-    const text = typewriter.textContent.trim();  // Trim any extra whitespace around the text
-    typewriter.textContent = '';  // Clear the text content initially
-    let currentLetter = 0;
-    let observerTriggered = false;
-
-    function type() {
-        // Use requestAnimationFrame for smoother animation
-        requestAnimationFrame(() => {
-            if (currentLetter < text.length) {
-                typewriter.textContent += text.charAt(currentLetter++);
-                setTimeout(type, 20);  // Use setTimeout for typing interval
-            }
-        });
-    }
-
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting && !observerTriggered) {
-                observerTriggered = true;  // Prevent the typing effect from running multiple times
-                type();
-            }
-        });
-    }, {
-        threshold: 0.1  // Trigger when 10% of the element is in view
-    });
-
-    observer.observe(typewriter);
-});
 
 // download cv code
 document.addEventListener('DOMContentLoaded', function () {

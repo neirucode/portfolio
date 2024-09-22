@@ -7,7 +7,7 @@
     --gray: #252525c5;
     --dark: #14001b;
     --darkviolet: #2C0735;
-    --violet: #4E148C;
+    --violet: #4e148c;
     --purple: #613DC1;
     --indigo: #858AE3;
     --azure: #97DFFC;
@@ -215,16 +215,17 @@ body {
     color: var(--azure);
 }
 
-.item1 {
+.hero .item1 {
     color: var(--white);
     margin-bottom: 50px;
-    z-index: 4
+    z-index: 4;
 }
 
 .hero .item1 .txt1,
 .item1 h5 {
     font-size: 40px;
-    font-weight: 700
+    font-weight: 700;
+    color: var(--azure);
 }
 
 .hero .item1 .txt1 {
@@ -372,7 +373,7 @@ body {
     padding: 0 50px;
     text-align: center;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 0.1s ease;
 }
 
 .button1:hover {
@@ -400,13 +401,13 @@ body {
 
 .divider {
     border: 5px solid var(--azure);
+    width: 100%;
 }
 
 .about__section {
     background-color: var(--dark);
     flex-direction: column;
     height: 120vh;
-    text-align: center;
     z-index: 2;
 }
 
@@ -423,7 +424,10 @@ body {
 
 .showcase-container {
     display: grid;
-    height: 100vh;
+    justify-self: center;
+    align-self: center;
+    width: 100%;
+    height: 100%;
     grid-auto-columns: 1fr;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
@@ -451,7 +455,7 @@ body {
 .intro {
     grid-area: intro;
     display: flex;
-    width: 50%;
+    width: 60%;
     flex-direction: column;
     justify-self: center;
     align-items: start;
@@ -462,7 +466,7 @@ body {
 
 .education {
     grid-area: education;
-    width: 50%;
+    width: 60%;
     flex-direction: column;
     justify-self: center;
     align-items: start;
@@ -472,12 +476,11 @@ body {
 
 .skills {
     grid-area: skills;
-    width: 50%;
+    width: 60%;
     flex-direction: column;
     justify-self: center;
     align-items: start;
     text-align: start;
-
 }
 
 .skills img {
@@ -486,9 +489,10 @@ body {
     margin: 1rem;
 }
 
+
 .experience {
     grid-area: experience;
-    width: 50%;
+    width: 60%;
     flex-direction: column;
     justify-self: center;
     align-items: start;
@@ -513,6 +517,7 @@ body {
     text-align: center;
     z-index: 0;
 }
+
 
 .section__cover .about {
     color: var(--azure);
@@ -574,105 +579,87 @@ h2 {
     line-height: 180%;
 }
 
-.scroller {
+/* tabs */
+.tabs__container {
     display: flex;
-    align-items: center;
     justify-content: center;
-    align-self: center;
-    justify-self: center;
     width: 100%;
-    height: 60vh;
-    overflow: hidden;
-    padding: 0;
-    list-style: none;
-    position: relative;
-    border-radius: 10px;
+    height: auto;
 }
 
-.scroller__inner {
+.tabs {
     display: flex;
-    gap: 20px;
-    height: 90%;
-    width: calc(200%);
-    /* Set width to accommodate the duplicated items */
+    flex-wrap: wrap;
+}
+
+.input {
     position: absolute;
-    top: 0;
-    left: 0;
-    will-change: transform;
-    animation: scroll 60s linear infinite;
+    opacity: 0;
 }
 
-@keyframes scroll {
-    0% {
-        transform: translateX(0);
-    }
-
-    100% {
-        transform: translateX(-50%);
-        /* Scroll by half the total width */
-    }
-}
-
-.scroller li {
-    flex: 0 0 750px;
-    position: relative;
-    list-style-type: none;
-}
-
-.scroller img {
-    display: block;
-    width: 100%;
-    height: 95%;
-    border: 1px solid var(--azure);
-    border-radius: 10px;
-    object-fit: cover;
-
-}
-
-.scroller img:hover .overlays {
-    filter: drop-shadow(0 0 0.75rem crimson);
-}
-
-.scroller img:hover .overlays {
-    filter: drop-shadow(0 0 0.75rem crimson);
-}
-
-/* 
-.scroller .overlays {
-    position: absolute;
-    bottom: 20px;
-    left: 20px;
+.label {
+    width: auto;
+    padding: 20px 30px;
+    backdrop-filter: blur(3.5px);
+    -webkit-backdrop-filter: blur(3.5px);
+    background: var(--violet);
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
     color: var(--azure);
-    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 18px;
+    transition: background 0.1s, color 0.1s;
+    order: 1;
+    cursor: pointer;
+    z-index: 9999;
+}
+
+.label:hover {
+    background: var(--azure);
+    color: var(--darkviolet);
+}
+
+.label:active {
+    background: #fff;
+}
+
+.input:focus+.label {
     z-index: 1;
-    line-height: 20px;
+    background: #fff;
 }
 
-.scroller img:hover~.overlays {
-    filter: drop-shadow(0 0 0.75rem crimson);
+.input:checked+.label {
+    background: var(--purple);
+    color: var(--white);
+    font-size: 1.5rem;
 }
 
-.scroller .overlays p {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 16px;
-    padding: 10px;
-    background-color: var(--white);
+.panel {
+    display: none;
+    padding: 20px 30px 30px;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    border-top-right-radius: 8px;
+    box-shadow: 0 4px 30px var(--purple);
+    color: var(--white);
+    width: 100%;
+    height: fit-content;
+    order: 2;
     color: var(--violet);
-    width: 120px;
-    height: 32px;
-    white-space: nowrap;
-    text-align: center;
-    border-radius: 5px;
-    height: 32px;
 }
 
-.scroller .overlays h3 {
-    font-size: 24px;
-    margin-top: 10px;
-} */
+.input:checked+.label+.panel {
+    display: block;
+    background: var(--purple);
+    color: var(--white);
+}
 
+.panel img {
+    border-radius: 10px;
+}
+
+/* tabs */
 
 .contact__section {
     backdrop-filter: blur(3px);
@@ -912,8 +899,7 @@ h2 {
         height: 100%;
         grid-template-columns: 1fr;
         grid-template-rows: auto;
-        grid-template-areas:
-            "intro"
+        grid-template-areas: "intro"
             "education"
             "experience"
             "skills";
@@ -1086,8 +1072,7 @@ h2 {
     .showcase-container {
         grid-template-columns: 1fr 1fr;
         grid-template-rows: 1fr 1fr;
-        grid-template-areas:
-            "intro skills"
+        grid-template-areas: "intro skills"
             "education experience"
             padding: 2rem;
         margin: 0 3rem;
