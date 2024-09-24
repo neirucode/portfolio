@@ -399,6 +399,18 @@ body {
     transform: scale(.95)
 }
 
+.hover-text {
+    transition: all 0.3s ease-in;
+}
+
+.hover-text:hover {
+    filter: drop-shadow(8px 8px 5px var(--purple));
+    transform: scale(1.1);
+    cursor: default;
+    z-index: 9999;
+}
+
+
 .divider {
     border: 5px solid var(--azure);
     width: 100%;
@@ -487,8 +499,39 @@ body {
     height: 40px;
     aspect-ratio: 1/1;
     margin: 1rem;
+    z-index: 99999;
 }
 
+.skills .tooltip-container {
+    position: relative;
+    display: inline-block;
+}
+
+
+.skills .tooltip-text {
+    visibility: hidden;
+    backdrop-filter: blur(3.5px);
+    -webkit-backdrop-filter: blur(3.5px);
+    background: var(--violet);
+    border: 1px solid var(--violet);
+    border-radius: 8px;
+    box-shadow: 0 4px 30px var(--purple);
+    color: #fff;
+    font-weight: 500;
+    padding: 8px;
+    border-radius: 4px;
+    position: absolute;
+    bottom: -20%;
+    left: 50%;
+    white-space: nowrap;
+    transition: all 0.2s ease-in;
+}
+
+.skills .tooltip-container:hover .tooltip-text {
+    visibility: visible;
+    transform: translateX(30%);
+    z-index: 99;
+}
 
 .experience {
     grid-area: experience;
@@ -657,6 +700,15 @@ h2 {
 
 .panel img {
     border-radius: 10px;
+    filter: blur(2.5px);
+    transition: all 0.3s ease-in-out;
+    border: 1px solid var(--dark);
+}
+
+.panel img:hover {
+    filter: blur(0);
+    transform: scale(1.02);
+
 }
 
 /* tabs */
@@ -933,6 +985,7 @@ h2 {
         height: 40px;
         aspect-ratio: 1/1;
         margin-right: 2.5rem;
+        position: relative;
     }
 
     .project__section {
