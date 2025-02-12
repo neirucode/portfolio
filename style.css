@@ -79,6 +79,7 @@ body {
 
 .light-mode,
 .light-mode img,
+.light-mode video,
 .light-mode canvas {
     filter: invert(95%) hue-rotate(180deg)
 }
@@ -680,7 +681,7 @@ h2 {
 
 .panel {
     display: none;
-    padding: 20px 30px 30px;
+    padding: 2rem;
     border-bottom-left-radius: 8px;
     border-bottom-right-radius: 8px;
     border-top-right-radius: 8px;
@@ -700,16 +701,16 @@ h2 {
 
 .panel img {
     border-radius: 10px;
-    filter: blur(2.5px);
     max-height: 90%;
     transition: all 0.3s ease-in-out;
-    border: 1px solid var(--dark);
+}
+
+.panel3 img {
+    max-width: 95%;
 }
 
 .panel img:hover {
-    filter: blur(0);
     transform: scale(1.02);
-
 }
 
 /* tabs */
