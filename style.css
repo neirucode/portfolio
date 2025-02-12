@@ -701,6 +701,7 @@ h2 {
 .panel img {
     border-radius: 10px;
     filter: blur(2.5px);
+    max-height: 90%;
     transition: all 0.3s ease-in-out;
     border: 1px solid var(--dark);
 }
