@@ -366,10 +366,11 @@ body {
     border-radius: 30px;
     color: #fff;
     cursor: pointer;
-    font-size: 24px;
+    font-size: 1.5rem;
     font-weight: 600;
-    height: 60px;
-    line-height: 30px;
+    height: 4rem;
+    min-height: min-content;
+    line-height: 2rem;
     margin: 50px 0;
     padding: 0 50px;
     text-align: center;
@@ -391,14 +392,13 @@ body {
         1px -1px 0 #d400ff,
         -1px 1px 0 #d400ff,
         1px 1px 0 var(--darkviolet);
-
-
 }
 
 .button1:active {
     background-color: #5050d1;
     transform: scale(.95)
 }
+
 
 .hover-text {
     transition: all 0.3s ease-in;
@@ -597,11 +597,10 @@ body {
     justify-content: start;
     flex-direction: column;
     text-align: start;
-    padding: 1.5rem;
+    padding: 1rem;
     line-height: 1.333;
     max-width: 80%;
     height: 100%;
-    padding: 1rem;
     color: var(--white);
     border-radius: 8px;
 }
@@ -621,6 +620,7 @@ h2 {
 .project__card p {
     font-size: 1.3rem;
     line-height: 180%;
+    width: 100%;
 }
 
 /* tabs */
